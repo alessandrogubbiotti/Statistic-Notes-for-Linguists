@@ -73,9 +73,3 @@ To compile the notes, you’ll need:
 
 These notes are provided **for educational purposes only**.  
 Feel free to use and adapt them, but please acknowledge the source if you redistribute.  
----
-
-## 📝 License
-
-These notes are provided **for educational purposes only**.  
-Feel free to use and adapt them, but please acknowledge the source if you redistribute.  
