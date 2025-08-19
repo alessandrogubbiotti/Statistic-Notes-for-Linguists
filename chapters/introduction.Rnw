@@ -1,0 +1,36 @@
+
+	\section{Introduction}
+	\label{s:intro}
+
+Probability Theory is a mathematical framework introduced for quantifying uncertainty 
+\begin{enumerate}
+	\item  The probability that tomorrow will rain is 0.75.
+	\item \label{e:stat1} The probability that the coin that I am about to toss will show its head is 1/2. 
+\end{enumerate}
+The intuitive meaning of the above statements is clear, and we will not delve into the interesting discussion of trying to give a precise meaning to them. Indeed, Probability theory does not discuss the meaning or the veradicity of the above statements, but it rather gives a formal framework to work with them in a consistent way that matches our intuition. For instance, statement ~\ref{e:stat1} is not universally true since one can easily cheat with coin tosses and make heads always appear. A possible approach to take is the \emph{subjective} approach, where the probability of an event can be seen as a subjective evaluation of the degree of trust in the event.\\
+To get an idea of which objects we need to formalise, we now proceed to decompose and to analyse the above statements. Both of them are of the form "The probability of \emph{something} is a number". That \emph{something} in the first case is E=" Tomorrow will rain", and in the second case F=" The coin that I am about to toss will show heads", and it will be called an \emph{event}. Events are the objets to which probability refers and the probability of an event is a number, $ 0.75$ in the first statement and  $ 0.5$, in the second. We now make an intermediate step and rewrite the above statements as  
+
+\begin{itemize}
+
+	\item The probability of $E$ is 0.75
+	\item The probability of $F$ is 0.5
+
+\end{itemize}
+Therefore, the probability of an event is a number and the probability is an operation that associates to each event a number. Denoting "The probability of" by $\mathbb P()$, the above statements can be rewritten as
+\begin{itemize}
+    \item $\mathbb{P}(E)=0.75$ \\
+    \item $ \mathbb{P}(F)=0.5$. 
+\end{itemize}
+and $\mathbb P$ can be seen as a function that takes in input an event and whose output is a number $p $ between 0 and 1
+\begin{equation}
+	\begin{array}{ccc}
+	\mathbb P: \text{ Events} & \mapsto & [0,1]\\
+		E &  \to & \mathbb P(E) \in [0,1].
+	\end{array}
+	\end{equation}
+Therefore a typical probabilisitc statement assumes the form of 
+\begin{itemize}
+	\item The probability of the event $E$  is $p$, or, $\mathbb{P}(E)=p$, 
+\end{itemize}
+where $p \in [0,1]$.
+

@@ -1,0 +1,447 @@
+
+\section{ Probability on Discrete Sample Spaces}
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  INTRODUCTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+  	\subsection{Introduction}
+
+    In this section we are going to formally define what is a probability. As already said in the Introduction~\ref{s:intro}, a probability associates to each  $E \in \mathfrak F$, the set of events that we want to consider, its probability, $\mathbb P(E)$. A probability is therefore a function 
+    \begin{equation}
+	    \label{e:prob_def}
+	    \begin{array}{ccc}
+		    \mathbb P: &\mathfrak F  \mapsto & [0,1]\\
+		   &  E \in\mathfrak F  \to & \mathbb P(E)
+		\end{array}
+	\end{equation}
+ Not every function from $\mathfrak F$ to $[0,1]$ has the right to be called a probability, and some relations must be satisfied. Consider the example of the two events $E = $"Tomorrow will be cloudy" and $ F = $"Tomorrow it will rain" and of its associated probabilities $\mathbb P(E)$ and $\mathbb P(F)$. If $F$ happens, also $E$ happens, and the intuition tells us that the numbers  $\mathbb P(E)$ and $\mathbb P(F)$ have to verify $\mathbb P(F) \leq \mathbb P(E)$. This monotonicity property, for instance, will be proved in Corollary~\ref{c:monotonicity} \\
+	In this notes we will not introduce the definition of probability in the full general context. We rather restrict to finite sample space $\Omega = \{\omega_1, \ldots, \omega_n\}$, for some $n \in \mathbb N$. Up to replacing finite sums with infinite sums, all the definitions and the results below generalise immediately to the discrete infinte setting $\Omega = \{\omega_1, \ldots, \omega_n, \ldots\}$, where the sample space can be written as a list of elements. Unfortunately, many sample spaces that are used in practice, such as $\Omega = [0,1]$, see Example~\ref{ex:unif} or $\Omega = \{x_1x_2\ldots \, , \, x_i \in\{0,1\}\,\text{ for $ i \in \{0,1\}$ } \}$ defined in \ref{ex:infinite_coin}, are simply too big to be written as a list of elements. In such cases the theory gets more involved and invokes mathematical results from measure theory. The reason is that the usual requirements that a function $\mathbb P: \mathfrak  F \to [0,1]$, the \emph{ Kolmogorov axioms},, are too strict to allow each $E \subset \Omega$ to be in $\mathfrak F$, and one has to restrict to a so-called $\sigma$-algebra of subsets of $\Omega$, a notion that this notes carefully avoid to introduce. Nevertheless, in such cases, we will evaluate the probabilities of particular events when dealing with Bernoulli trials, see Definition~\ref{d:Bernoulli_measure} and with continuous random variables, see Definition~\ref{d:continuous}. 
+   
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsection{Definition of a probability on a finite sample space}
+
+    Hereafter we consider a finite sample space $\Omega = \{\omega_1, \omega_2, \ldots, \omega_n\}$, for some $n  \in \mathbb N$, and we consider every event that can be written in terms of the elementary events $\omega_1, \ldots, \omega_n$, namely   
+    \begin{equation}
+	\label{e:f_all}
+        \mf F = \{ A \, , A \subset \Omega \}
+    \end{equation}
+   consists in every subset of $\Omega$ (including the impossible event $\emptyset$ and the certain event $\Omega$).  
+    The particularity of the discrete case we are considering is that in order to define a probability on $\Omega$ it is sufficient to define the probabilities of the elementary events
+    \begin{definition}[Probability of the elementay events]
+        \label{d:prob_elementary}
+        A probability for the elementary events $\omega_i$, $i = 1, \ldots ,n$ is a collection numbers $p_1, \ldots, p_n$ verifying 
+        that $p_i \in [0,1]$ for each $i = 1, \ldots, n $ and 
+        \begin{equation}
+        \label{e:normalization}
+        p_1 + p_2 + \ldots + p_n = 1    
+        \end{equation}
+    \end{definition}
+	The condition \eqref{e:normalization} has the intuitive meaning that we regard the event in which none of the $\omega_i$ happens as impossible, see Proposition~\ref{p1}. 
+  \begin{example}
+	  \label{ex:definition}
+	  The sample space of a rolled die is  $\Omega = \{1,2,3,4,5,6\}$. Definition~\ref{d:prob_elementary} allows for different choices of probabilities on elementary events, but a typical choice is 
+	  \begin{equation}
+		  \label{e:die_uni}
+		  p_1 = \ldots = p_6 = 1/6,
+	  \end{equation}
+	which corresponds to to a perfectly balanced die or a die about which we do not have any information.  A probability corresponding to an unfair die could look like
+	  \begin{equation}
+		  \label{e:die_unfair}
+		  p_1 = p_2 = p_3 = 1/4,\qquad p_4 = p_5 =p_6 =1/12.
+	  \end{equation}
+  \end{example}
+
+	  The numbers $p_i$, for $i = 1,\ldots, n$, are the probability of the elementary event $\omega_i$, namely $\mathbb P(\{\omega_i\}) \coloneq p_i$. We will sometimes, for instance in \eqref{e:prob}, use the different notation $\mathbb P(\{\omega\}) = p_\omega$, which avoids to use the index $i$ with which the elements of $\Omega$ are ordered and that, therefore, does not depend on the particular way the elements are ordered. If $\omega = \omega_i$, then the two notations are related by $p_i \equiv p_{\omega_i}$. 
+	  \begin{example}
+		  \label{ex:coin_toss_notation}
+		  This example ilustrates the difference in the two possible notations we have introduced. Consider $\Omega_2$, the sample space of two coin tosses given in Example~\ref{ex:n_coin}. Ordering the elements $\Omega = \{00,01,10,11\}$  by $\omega_1 = 00$, $\omega_2 = 01$, $\omega_3= 10$ and $\omega_4 =11$, then a possible probability using the notation introduced in Definition~\ref{d:prob_elementary} is given by 
+		  \bel{}{
+			p_1 = 1/8\, ,   p_2= 1/8\, ,  p_3 = 1/2\, , p_4 = 1/4
+		  }
+		  and the same probability, using the equivalent notation $p_\omega$, is given by 
+		  \bel{}{
+		p_{00} = 1/8 , \, p_{01} = 1/8,\, p_{10} = 1/2 , \, p_{11} = 1/4 
+		  }
+	\end{example}
+	Note that the possible ways of choosing $p_i$i, for $i = 1,\ldots, n$, are quite arbitrary and the only restrictions involved in the choice is that $p_i \in [0,1]$ and \eqref{e:normalization}, which basically means that there are $n-1$ numbers (which have to positive and whose sum has to be less than 1) to fix. However, in the discrete setting, this is all the freedom at our disposal, and once the probabilities of the elementary events are assigned, the probability of every event $E \in \mf F$  is determined by the sum of the probabilities of the elementary events that compose it, according to the following definition   
+   \begin{definition}
+        \label{d:prob}
+        Let $p_1, p_2, \ldots, p_n$, $n \in \mathbb N$ be a probability for the elementary events, see Definition~\ref{d:prob_elementary}, and let $A \subset \Omega$ be an event. The probability of $A$ is the sum of the probabilities of the elementary events that compose it 
+	   \bel{e:prob}{
+			\mathbb P(A) = \sum_{\omega \in A } p_\omega
+	   }
+	Using a different notation, any subset $A$ of $\Omega$ can be written as 
+	   	\bel{e:notation}{
+			A = \{\omega_{i_1}, \ldots , \omega_{i_k}\},
+		}
+		for some $k \leq n$ and set of indexes $1\leq i_1 < i_2 < \ldots < i_k \leq n$. Its probability is then given by 
+	    	\begin{equation}
+		\label{e:prob2}
+			\mathbb P(A) = p_{\omega_{i_1}} + \ldots + p_{i_k} \equiv p_{i_1} + \ldots + p_{i_k}
+            \end{equation}
+            \end{definition}
+	    \begin{example}
+		    \label{ex:dice_prob}
+			We come back to Example~\ref{ex:definition} in order to see Definition~\ref{d:prob} in action and to get better acquinted with the two different notations \eqref{e:prob} and \eqref{e:prob2}.  The event "The result is an odd number" corresponds to the subset  $\{1,3,5\}$ and \eqref{e:prob} tells that the two probabilities $\mathbb P$ and $\mathbb Q$ defined by the choices \eqref{e:die_fair} and \eqref{e:die_unfair}, respectively, evaluate the probability of this event by  
+			\begin{equation}
+				\label{e:die_prob_uni}
+				\mathbb P (\{1,3,5\}) = \mathbb P(\{1\}) + \mathbb P(\{3\}) + \mathbb P(\{5\}) = \frac16 + \frac16 + \frac16 = \frac12
+			\end{equation}
+	and
+			\begin{equation}
+				\label{e:die_prob_unfair}
+				\mathbb Q (\{1,3,5\}) = \mathbb Q(\{1\}) + \mathbb Q(\{3\}) + \mathbb Q(\{5\}) = \frac14 + \frac14 + \frac1{12} = \frac7{12},
+		   \end{equation}
+	respectively. In order to use the notation in \eqref{e:prob2}, we rewrite the set $\{1,3,5\}$ as in \eqref{e:notation} by setting  $k = 3$ and $i_1 = 1$, $i_2 = 3$ and $i_3 = 5$. Observe also that $\mathbb P(\Omega) = \mathbb Q(\Omega) = 1$ thanks to \eqref{e:normalization}.
+		\end{example}
+
+		We finally collect the definitions of the present section 
+		\begin{definition}
+			\label{d:prob3}
+			A \emph{probability} over $\Omega$ is a function 
+			\begin{equation}
+				\begin{array}{ccc}
+					\mathbb P: & \mathfrak F \to & [0,1]\\
+					& E  \mapsto & \mathbb P(E)
+				\end{array}
+			\end{equation}
+			such that $p_i \coloneq \mathbb P(\{\omega_i\})$ forms a probability on elementary events in the sense of Definition~\ref{d:prob_elementary} and \eqref{e:prob} (or \eqref{e:prob2}) holds.
+		\end{definition}
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNIFORM PROBABILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsection{Uniform probability }
+	  In the case in which you evaluate each elementary event equally likely to occur, or in the case in which you don't have any knowledge to say that any particular elementary event is more likely to occur, a possible chice is to assign to each elementary event the same probability $p \in [0,1]$. To determine $p$ we use \eqref{e:normalization}    
+	  \begin{equation}
+		  \label{e:uniform1}
+		  p_1 + \ldots + p_n =\overbrace{ p + \ldots p}^{n \text{ times }} = n p = 1, 
+		  \end{equation}
+		  from which we obtain that $p = 1/n$. To compute the probability of an event composed by $k$ elementary events $ A = \{\omega_{i_1}, \ldots, \omega_{i_k}\}$, with $k \leq n$ and $ 1\leq i_1 < \ldots < i_k\leq n $ we use \eqref{e:prob2} to obtain
+		  \begin{equation}
+			  \label{e:uniform2}
+			  \mathbb P(A) = p_{i_1} + \ldots + p_{i_k} = \overbrace{\frac1n+ \ldots + \frac1n }^{k \text{times }} = \frac{k}{n},
+		\end{equation}
+		which depends only on $k$, the number of elementary events that compose $A$. 
+	Denoting by $|E|$ the number of elements of the set $E \subset \Omega$, one can rewrite \eqref{e:uniform2}  as the number of elements that compose $A$ divided by the total number of events
+			\bel{}{
+				\mathbb P(A) = \frac{|A|}{|\Omega|.}
+			}
+		To get acquinted with the notation independent from the ordering used in \eqref{e:prob}, we repeat the same computations   
+ 			\bel{}{
+			\mathbb P(A) = \sum_{\omega \in A } \mathbb P(\{\omega\}) = \sum_{ \omega \in A } p = p \left( \sum_{ \omega  \in A } 1 \right) = p |A| = \frac{|A|}{|\Omega|}, 
+			}
+	and obtain 
+	\begin{definition}[Uniform Probability]
+			\label{d:uniform}
+			Let $\Omega$ be a finite sample space. The uniform probability is defined by 
+				\begin{equation}
+					\label{e:uniform}
+					\mathbb P(E) = \frac{|E|}{|\Omega|},
+				\end{equation}
+				or each $E \subset \Omega$. 
+	\end{definition}
+	Basically, computing the uniform probability reduces to counting configurations. Unfortunately, despite being conceptually simple, it is often computationally unfeasible. The same holds for general discrete probabilities, which can be seen as a way to count objects giving different weights to them.
+	The uniform probability is often mistakenly taken as the definition of probability. This has led to some abuse of notation such as the following 
+	\begin{example}[Extracting Randomly a Person]
+		\label{ex:person}
+		Consider extracting a person between 20, and denote $\Omega =\{1,\ldots, 20\}$ the sample space, where $i$  denotes the elementary event "the $i$-th person is extracted".  Usually  what is meant by the sentence "a person is extracted randomly" is that a person is selected with uniform probability, namely $\mathbb P(\{i\}) = 1/20$. However, from our point of view, a Nobel prize is also chosen randomly among the possible candidates, but there is no reason why the probability should be the uniform one. Another that can be ambiguous are " we choose a person as randomly as possible", by meaning as fairly or as uniform as possible. \\
+	% Maybe the next should go to the intro in statistics  
+		 As a side note, despite being natural to model the choice of a person with uniform probabiity, when doing a survey or making a poll statisticians struggle to make their choice adhere to this model. When mobile phones were not so widespread, doing surveys by phone call excluded a portion of the population, for instance. See Example~\ref{ex:sampling_model}.  
+	\end{example}
+
+ Sometimes probabilities that are not uniform can be seen as arising from a uniform probability space (in the sense of Definition~\ref{d:extension_prob}, see Example~\ref{ex:two_dice_sum_prob}) 
+\begin{example}[ Sum of two dice ]
+	\label{d:two_dice_sum}
+	 Consider the sample space of two dice 
+	\bel{}{
+		\Omega'=\{11,12...., 66\}=\{x_1x_2\,:\, x_1,x_2 \in \{1,...6 \} \}
+	}
+	and endow it with the uniform probability. We will discuss in \ref{e:extractions_iid} the reason of this choice, but we anticipate that it is due to the fact that the dice are \emph{fair} and they are rolled \emph{independently}, see Subsection{ss:ind}?????.
+	Assume we can only look at the sum of the results. This leads to a \emph{coarse grained} sample space, see Example~\ref{ex:?????} where the elementary events, that is, the elements of the new sample space $\Omega$, are the events described in $\Omega'$ by  $\{(x_1,x_2)\in\Omega'\,:\,x_1+x_2=k\}$, and whose probabilities are  
+\bel{sum}{
+ \mathbb{P}(A_2) &=\mathbb{P}(A_{12})=\frac{1}{36}\\
+\mathbb{P}(A_3) &=\mathbb{P}(A_{11})= \frac{1}{18}\\
+\mathbb{P}(A_4) &=\mathbb{P}(A_{10})= \frac{1}{12}\\
+\mathbb{P}(A_5) &=\mathbb{P}(A_9)= \frac{1}{9}\\
+\mathbb{P}(A_6) &=\mathbb{P}(A_8)= \frac{5}{36}\\
+\mathbb{P}(A_7) &=\frac{1}{6}.
+	}
+\end{example}
+Therefore, the probability in $\Omega$ is not the uniform one. 
+\begin{example}[Extractions with replacement ]
+	\label{ex:replace}
+	Consider the sample space given by extractions with replacements, which are the object of Exercise~\ref{exercise:marbles}. It makes sense to consider each outcome equally probable, that is 
+	\bel{e:extraction_replacement}{
+		p_{(a,b)} = 1/9 \quad \text{for each $(a,b) \in \Omega$}.
+	}
+	This choice of a probability is a consequence of two properties, the fact that the extractions are \emph{fair} and \emph{ independent }, see also ??? for a more general example. The fact that the extractions are independent is sometimes hidden in the extraction procedure: between two extractions we mix the balls.  
+	\end{example}
+
+	\begin{example}[Extractions  without replacement]
+	\label{ex:no_replace}
+	If in the extractions from the bowl of Example~\ref{ex:replace} and Exercise~\ref{ex:no_replace} we do not reinsert the ball the sample space is smaller or, equivalently, we assign $p_{rr} = p_{nn}  = p_{gg} = 0$. Nonetheless the symmetry between the colours of the marbles suggests that we might regard each other outcome as equally probable. This is again a consequence of the two following facts, which will be discussed in a more general setting in \eqref{e}. Each single extraction is fair and, since we mix the marbles before drawing again, the second extraction depends on the first one only because of the fact that the composition of the bowl changes. 
+	\end{example}
+
+
+\begin{ExerciseList}
+	\Exercise A coin is tossed 4 times. Recall that the state space is $\Omega=\{0000,0001,...,1111\}$, where a 1 means that the associated coin gave heads. Suppose that the probability on $\Omega$ is uniform (we will see in Section \ref{ss:indep} that this is due to independence of each coin toss). Calculate the probability of the events 
+    \Question The first toss gave 1 
+    \Question There are exactly two heads 
+    \Question There has been a head after a tail (that is, we observed a 01)
+
+    \Question The event is obtained by  fixing the first digit to 1 and allowing the other to take arbitrarily the values 0 or 1, that is, $E = \{ 1x_2x_3x_4,\, x_i \in \{0,1\} \}$. Since $|E| = 2^3$ and $|\Omega| = 2^4$, by formula \eqref{e:unif} we obtain 
+    $$\mathbb {P}(E) = 2^3/2^4 = \frac{1}{2}.$$
+
+    
+	\Exercise We throw two dice, and we suppose that the each output has the same probability (Section \ref{ss:independence} will justify this choice with the hypothesis of independence and fairness of the dice)
+   
+    \Question Calculate the probability of obtaining a 2 and a 4
+    \Question Calculate the probability of obtain 2 with the first die and 4 with the second 
+
+\end{ExerciseList}
+
+
+\subsection{Basic properties}
+
+	Let $\Omega$ be a sample space and $\mathbb{P}$ a probability defined on it. The first property tells us that there are no possible outcomes outside the $\omega_i$.   
+	\begin{proposition}
+\label{p1}
+\bel{e:normalization}{\mathbb{P}(\Omega)=1}
+\end{proposition}
+
+	\begin{proof}
+		It is a direct consequence of \eqref{e:normalization}:
+		\bel{}{\mathbb{P}(\Omega)=\mathbb{P}(\{\omega_1,\omega_2,...,\omega_n\})=\mathbb{P}(\omega_1)+...+\mathbb{P}(\omega_n)=1.}
+
+	\end{proof}
+	We now formulate the \emph{additivity} property of the probability. 
+	\begin{proposition}[Additivity]
+		\label{p:monotone}
+		Any two \emph{mutually exclusive} events $A$ $B$, that is, events that satisfy  $A\cap B=\emptyset$, verify
+		\bel{e:add}{
+			\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B).i
+		}
+	\end{proposition}
+		More generally, 
+	\begin{proposition}
+		\label{p:exclusive}
+		Any two events $A,\, B\subset \Omega$, it holds  
+		\bel{e:union}{
+			\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B). 
+		}
+	\end{proposition}
+	 The proof looks more involved than what really is. The idea is simple and is the following up of the graphycal picture of the events as subset of the sample space using the Venn diagram in Figure~\ref{e:Venn}. A probability can be seen as a measure of the areas covered by the events, and we can see that $\mathbb P(A)  + \mathbb P(B)$ counts twice the area of $A \cap B$, while only once the area in $A \cup B$ that is not in $A \cap B$.  
+	\begin{proof}
+	Let $\Omega=\{\omega_1,...,\omega_n\}$ be the sample space. Without loss of generality, we assume that $A=\{\omega_1,...,\omega_s,\omega_{s+1}...,\omega_l\}$, and that $B=\{\omega_1,...,\omega_s,\omega_{l+1},...,\omega_{l+m}\}$. In this way, $A\cap B=\{\omega_1,...,\omega_s\}$, and $A\cup B=\{\omega_1,...\omega_{l+m}\}$. Using the Definition~\ref{d:prob}, 
+	\bel{}{
+		\mathbb{P}(A)=\mathbb{P}(\omega_1)+...+\mathbb{P}(\omega_s)+\mathbb{P}(\omega_{s+1})+...+\mathbb{P}(\omega_l), 
+	}
+	\bel{}{
+		\mathbb{P}(B)=\mathbb{P}(\omega_1)+...+\mathbb{P}(\omega_s)+\mathbb{P}(\omega_{l+1})+...+\mathbb{P}(\omega_{l+m})
+	}
+	and 
+	\bel{}{
+		\mathbb{P}(A\cap B)=\mathbb{P}(\omega_1)+...+\mathbb{P}(\omega_s).
+	}
+	In this way, $$\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)=\mathbb{P}(\omega_1)+...+\mathbb{P}(\omega_s)+\mathbb{P}(\omega_{s+1})+...+\mathbb{P}(\omega_{l+m})=\mathbb{P}(A\cup B).$$
+	\end{proof}
+	\begin{corollary}\label{}
+		Let $A,B\subset\Omega$ be two mutually exclusive events, that is, two events such that $A\cap B = \emptyset$. Then 
+		\bel{e:addc}{\mathbb{P}(A\cup B) = \mathbb{P}(A)+\mathbb{P}(B).}
+	\end{corollary}
+	\begin{proof}
+		Use \eqref{e:add} and note that $\mathbb{P}(A\cap B)= \mathbb{P}(\emptyset)= 0$. 
+	\end{proof}
+		\begin{corollary}[Monotonicity]
+			\label{c:monotonicity}
+			Let $A$ and $B$ be two events $A,B\subset\Omega$. If $A\subset B$, then 
+			\bel{}{\mathbb{P}(A)\leq\mathbb{P}(B).}
+		\end{corollary}
+	The monotonicity is a very intuitive property. The probability that today's weather is bad is greater than the probability that today there is a storm, since if there is a storm there is also bad weather.  
+	\begin{proof}
+		The intuition of the proof is that when we sum over the elementary events in $B$ we are summing over the elementary events in $A$ and the elementary events in $B\setminus A$. Therefore we write $B$ as $A\cup (B\setminus A)$ and using \eqref{e:addc} we obtain that $\mathbb{P}(B) = \mathbb{P}(A)+\mathbb{P}(B\setminus A) \geq \mathbb{P}(A)$.
+	\end{proof}
+	\begin{corollary}
+	 \label{c:complementary}
+		Let $A\subset \Omega$ be an event. The 
+	\bel{e:compl}{
+		\mathbb{P}(A^c)=1-\mathbb{P}(A),
+	}
+	\end{corollary}
+	\begin{proof}
+		Write $\Omega = A \cup A^c $, apply \eqref{e:addc} with $B=A^c$ and use \eqref{e:normalization}.
+	\end{proof}
+	This property is also very natural. The probability that I will pass the test is 0,6. Thus, the probability that I will not pass the test is $0.4$.\\
+	
+%\begin{ExerciseList}
+%
+%	\Exercise You roll three dice and give to the sample space the uniform probability (This choice for the probability will be justified in section \ref{ss:indep} by the fact that the dice are rolled independently and each one of them is balanced. See also the discussion in \ref{example:extractions}) A="The first two dice show the same result", B=" The last two dice show the same result". Verify the relation \eqref{e:union} 
+%
+%
+%%	\Answer  The sample space is $\Omega=\{(1,1,1),(1,1,2)...,(6,6,6)\}$, which contains $6\times6\times 6$ elements. The event $A=\{(i,j,k)\,:\, i=j\}=\{(i,i,k)\,:\,i,k\in\{1,2,3,4,5,6\}\}$, composed by the 3-uples that whose first 2 coordinates are identical, has $6\times 6$ elements, and the same remains true for the event $B=\{(i,j,j)\,:\,i,j\in\{1,2,3,4,5,6\}\}$. You can also check that $A \cup B"$ has 66 elements, the ones coming from $A$ plus the ones coming from $B\setminus A$. Since $A\cap B=\{(1,1,1),(2,2,2),...,(6,6,6)\}$ has 6 elements, we can  use formula \eqref{e:unif} to obtain 
+%%	\bel{}{\mathbb{P}(A)=\mathbb{P}(B)=1/6, \\
+%%		\mathbb{P}(A \cap B ) = 1/36, \\
+%%		\mathbb{P}(A \cup B ) =7/36. }
+%%   
+%
+%	\Exercise (Independent Bernoulli trials with a fair coin) We toss a coin 9 times. The sample space is follows $\Omega=\{x_1...x_{10}\,:\, x_i\in\{0,1\} \textit{for } i=1,...,10\}$, the set of possible 9 digit strings with digits in the set $\{0,1\}$  We assign the uniform probability (once again, reason why we do that will be found in the subsection \ref{ss:independence}). 
+%
+%    \Question What is the probability all the coin tosses gave heads? 
+% 
+%    \Question What is the probability that only 1 coin toss gave heads?
+% 
+%    \Question What is the probability that at most 1 coin toss gave heads?
+%    
+%    \Question What is the probability that at least 8 coin tosses gave heads? 
+%
+%%	\Answer The number of elements in $\Omega$ is $2^9$
+%%		\Question The event corresponds to  the outcome 11...1. Thus the probability is $1/|\Omega| = 1/2^9$
+%%		\Question The event corresponds to the strings whose digits are all 1 except  one, which is 0. We have to calculate the probability of  $\{011111111,101111111,.... \}$.  This set has 9 elements, so that applying \eqref{e:unif}, we obtain that the probability is $9/2^9$.  
+%%		\Question Changing the w
+%%
+%%		\Question We observe that this event is the same as F="There has been at most 1 tails". This event has the same number of elementary events as the event $E$, 10. Thus the probability is again $10/2^9$.
+%%
+%%		\Question This computation can be done directly, but we use the following shortcut. Let's denote by $H$ the event in the above question and consider $A^c$=" There are 5 or more heads"= " There are 4 or less tails". From this last reformulation, we see that $A$ and $A^c$ have the same number of elements (they are obtained one from the other by changing the word heads to the word tails), and thus $\mathbb{P}(A)=\mathbb{P}(A^c)$. Using \eqref{c:}, we obtain that $\mathbb{P}(A)=1-\mathbb{P}(A)$, so that $\mathbb{P}(A)=1/2$. 
+%%
+%\Exercise Assume now that we toss 8 times a coin without knowing what probability with should assign to the coin tosses, apart from the fact that we know that the coins are balanced, that is, if we change tails with heads the probability does not change. \\
+%Convince yourself that the symmetry between heads and tails is mathematically restated in the following way. Let $A$ be a subset of the sample space 
+%    $$
+%    \Omega = \{x_1...x_8,\, x_i\in\{0,1\}, i = 1,...,8\}
+%    $$
+%and consider the operation that 
+%$i(x_1x_2...x_8) = (1-x_1)(1-x_2)...(1-x_8)$, (for instance $i(10010000) = 01101111$) obtained by changing the heads with the tails. The symmetry between tails and heads means that the set 
+%$$
+%i^{-1}(A) = \{ x_1...x_8 \in \Omega \,,\, (1-x_1)(1-x_2)...(1-x_8) \in A \}
+%$$
+%(the set of possible outcomes such that the symmetric outcome is in $A$), has the same probability of $A$, that is,  $\mathbb P(A) = \mathbb P(i(A))$. 
+%
+%	\Question What is the probability that less or equal than 4 coin tosses gave heads?  (Hint: Pass to the complementary event. How are the probability of the event and of its complementary related?)
+%
+%    \Question (Bonus question) Find a probability, different from the uniform one, for which the symmetry assumption 
+%    $$
+%    \mathbb P(A) = \mathbb P(i(A))
+%    $$
+%    holds for every $A\subset \Omega$. 
+%       
+%
+%%    \Answer 
+%%        \Question 
+%%        Let's denote the event in the statement of the question $E$. It suffices to notice that $E^c$, the set of outcomes that contain strictly more than 5 heads is equal to the event that the number or tails is less or equal than 4. That is, exactly the set $E$ up to changing the word tails with heads, that is, $i(E)$. Thus 
+%%        $$
+%%        1 = \mathbb P(E) + \mathbb P(E^c) = \mathbb P(E ) + \mathbb P (i(E))  = 2\mathbb P(E).
+%%        $$
+%%        Thus $\mathbb P(E) = 1/2.$
+%%        \Question Imagine you are tossing 8 coins glued together. Then the probability of obtaining 11111111 is $1/2$, the probability of obtaining 00000000 is $1/2$, and the other outcomes have probability zero. To prove the intuitive fact that this probability is symmetric, consider $A$ and note that 
+%%    \begin{equation}
+%%        \mathbb P(A) = 
+%%        \begin{cases}
+%%        $1/2$ & \textrm{if $A $ contains one and only one between 1...1 and 0...0 }\\
+%%        $1$ & \textrm{if $A$ contains 1...1 and 0...0}\\
+%%        0 & \textrm{ otherwise}
+%%        \end{cases}
+%%    \end{equation}
+%%    Now it suffices to notice that $A$ contains 1...1 if and only if $i(A)$ contains 0...0, and $A$ contains 0...0 if anf only if it contains 1...1. and the equality $\mathbb P(A) =\mathbb P (i(A))$ can be checked by considering case by case \eqref{e:prob}.
+%%
+%
+%
+%	\Exercise (\cite{Ross} Chapter 2 Exercise 10) Sixty percent of students at a certain school wear neither a ring nor a necklace. Twenty percent wear a ring and 30 percent wear a necklace. If one of the students is chosen randomly (recall what chosen randomly actually means), what is the probability that one of the students is wearing 
+%\Question A ring or a necklace
+%\Question A ring and a necklace
+%
+%%	\Answer The hypotheses mean the following: Denote by $n$ the total number of students, by $ l$ the number of those who wear  a ring, by $k$ the number of those who wear a necklace and by $r$  the number of those who don't wear neither a ring nor a necklace. Then $l/n=20/100$, $k/n=30/100$, $r/n=60/100$. Chosing a person randomly between a group of $n$ people means that the sample space is $\Omega=\{1,....,n\}$, where each number denotes a different person, and each person has the same probability of being chosen. Gluing the above information we obtain that, denoting by R="The extracted student wears a ring", N= "The extracted student wears a necklace" and using that "The extracted student wears no ring nor necklace"= $ N^c \cap R^c$, that 
+%%	\bel{}{ \mathbb{P}(R) = & l/n = 20/100,\\
+%%		\mathbb{P}(N) = & k/n = 30/100, \\
+%%		\mathbb{P}(N^c \cap R^c ) = & r/n = 60/100.}
+%%
+%%		\Question Observe that $(R\cup N)^c = R^c \cap N^c $, so that 
+%%		\bel{}{\mathbb{P}(R \cup N) = 1-\mathbb{P}(R^c\cap N^c) = 1-60/100=40/100=0.4}
+%%		
+%%	\Question By \eqref{} 
+%%	\bel{}{mathbb{P}(R \cap N) = \mathbb{P}(R)+\mathbb{P}(N)-\mathbb{P}(R\cup N)=20/100+30/100-40/100=0.1.}
+%%
+%%
+%%		\Exercise (\cite{Ross} Chapter 2 Exercise 12) An elementary school is offering 3 language classes, 1 in Spanish, one in French, and one in German. The classes are open to any of the 100 students in the school. There are 28 students in the Spanish class, 26 in the French class, 16 in the German class. There are 12 students who are in both Spanish and French, 4 who are in both French and German, and 6 that are in both Spanish and German. In addition there are 2 students taking all 3 classes.
+%%
+%%\Question If a student is chosen randomly. What is the probability that he or she is not in any lenguage classes?
+%%	\Question If a student is chosen randomly, what is the probability that he or she is taking exactly one lenguage class?
+%%
+%%	\Question If two students are chosen randomly (see the discussion in Example \eqref{example:extractions}), what is the probability that at least 1 is taking a lenguage class? 
+%%
+%
+%%\Answer 
+%%
+%%	\Question The event of the first point is $(S \cup F \cup G)^c=$. We use formula \eqref{} with $A=S \cup F$ and $B=G$, so that 
+%%	\bel{}{\mathbb{P}(S \cup F \cup G) & = \mathbb{P}(S \cup F) + \mathbb{P}(G)-\mathbb{P}((S \cup F)\cap G) \\
+%%	& = \mathbb{P}(S \cup F) + \mathbb{P}( G)- \mathbb{P}((S\cap G)\cup (F \cap G)). }
+%%	Using twice more formula \eqref{}, first with $A=S$ and $B=G$, then with $A= F \cap G$ and $B = S\cap G$, we obtain that
+%%
+%%	\bel{}{\mathbb{P}(S \cup F \cup G) & = \mathbb{P}(S) + \mathbb{P}(F) -\mathbb{P}(S \cap F) + \mathbb{P}(G)-\mathbb{P}((S \cap G)-\mathbb{P}(F \cap G) + \mathbb{P}(F \cap S \cap G) ) \
+%%	& = 28/100 + 26/100 - 12/100 + 16/100 - 6/100 -4/100 + 2/100 = 50/100.
+%%	}
+%%
+%%	\Question We know from the previous point the probabilit that the student doesn't follow any course. If w calculate the probability that the student follows at least two courses $ (S \cap F) \cup (S \cap G) \cup  (F \cap G)$. 
+%%	Once again we iteratively use formula \eqref{} first with $A= (S \cap F)$ and $B= (S \cap G)\cup (F \cap G)$ to obtain 
+%%	\bel{}{\mathbb{P}( & (S \cap F) \cup (S \cap G) \cup  ( \cap G)) = \mathbb{P}( S \cap F) \\ & + \mathbb{P}((S \cap G)\cup ( F\cap G))- \mathbb{P}(S \cap F \cap G).
+%%	Once again we use \eqref{} with $A= S \cap G$ and $B = S\cap G$ to obtain  
+%%	\bel{}{\mathbb{P}( & (S \cap F) \cup (S \cap G) \cup  (F \cap G)) = \mathbb{P}( S \cap F) \\ & + \mathbb{P}(S \cap G+ \mathbb{P}( F\cap G))- 2\mathbb{P}(S \cap F \cap G)= 12/100+4/100+6/100- 2 \times 2/100=18/100.}
+%%	Since the event that the student takes exactly one course is the complementary of the event that the student takes no course or more (or equal) than two courses,  we obtain that 
+%%	\bel{}{\mathbb{P}(\textrm{" The student takes exactly 1 course "}) = 1- (50/100+ 18/100)= 32/100. }
+%%
+%%
+%%	\Question Denote by $E_1$ the event that the first student chosen will follow a lenguage class and by $E_2$ the same event for the second student. The event of which we want to compute the probability is $E_1 \cup E_2$. Noting that we already know the probability of the events $E_1$ and $E_2$, which is the same as the one of the event $S \cup G \cup F$, we need to compute the probability of $E_1 \cap E_2$. Since we are extracting two students, the sample space is now $\Omega = \{(1,2),(1,3),...(99,100)\} = \{(i,j)\,,\, i \ne j, i,j=1,2...,100\}$, and the probability is the uniform one. The number of elements of $\Omega$ is $100^2 - 100$ (I have to subtract the pairs where I choose twice the same student, inammissible choice) How many pairs of students that are both in a lenguage class? We now that there are 50 students that are at least in a lenguage class. The number of pairs that I can form with students is therefore $50^2-50$ ( I have to subtract the pairs in which the same student is chosen). Therefore $\mathbb{P}(E_1 \cap E_2) = 2450/9900$ and $\mathbb{P}(E_1 \cap E_2) = 0.5+0.5- 2450/9900$. 
+%%
+%\Exercise  (\cite{Ross} Chapter 2 Exercise 17)  
+%
+%
+%If 8 rooks (castles) are randomly placed in a chessboard (Here we think in the following way: we are choosing, without replacement, 8 positions from the 64 of where to place the rooks. You can think that the rooks are distinguishable or not, this changes your sample space but not the final result. We use the uniform probability, and, again, the reason will be clarified in Section \ref{ss:independence}. See also the discussion in Example \ref{example:extractions}), compute the probability that none of the rooks can capture any of the others. That is, compute the probability that no row or file contains more than one rook. (Hint: to count the number of ways you can place the rooks, start by placing the first and count how many places are left). Hint: start with a 2x2 or 3x3 chessboard. 
+%
+%%\Answer
+%%
+%%We will count all the possible ways to place 8 (distinguishable) rooks in a chessboard. First place the first rook: you 64 possibilities. Then place the other one: you have 64-1=63 possibilities ( 64 places minus the one which is already occupied). For the third you have 64-2=62 possibilities.... For the 8-th one you have 64-(8-1)=57 possibilities. In total, the number of ways you can place the rooks is $64\times 63\times...\times 57$. The number of configurations in which the rooks can be placed in such a way that any of them can capture any of the other can be counted in a similar way. First place the first tower: you have 64 possibilities. Then place the second: you have $7\times 7$ possibilities (the whole chessboard minus the row and the column where the first rook is). For the third you have $6\times 6$ possibilities... Using formula \eqref{}, the solution is  
+%%\bel{}{& \frac{\textrm{number of ways of placing 8 rooks as required }}{\textrm{ number of possible ways of placing 8 rooks}}\frac{8\times8\times7\times7\times6\times6...\times1\times1}{64\times63\times...\times57}\\
+%% & =\frac{(8!)^2}{64\times 63\times...\times 57}}
+%%Note that  are implicitly using the following sample space :
+%%number the 8 rooks from 1 to 8 and the 64 places in the chessboard from 1 to 64. Denote $x_1$ the place of the first rook, by $x_2$ the place of the second, and so on. Since two different rooks are in different places $x_i\neq x_j$ if $i\neq j$. A configuration of rooks is $(x_1,...,x_8)$, where $x_i\in\{1,...,64\}$ and $x_i \neq x_j $ if $i\neq j$. Thus, the state space of placing  8 rooks in a chessboard is  
+%%\bel{}{\Omega=\{(x_1,...,x_8)\,:\,x_i\neq x_j \textrm{ if } i\neq j\},}
+%%and we have proved is that the number of elements in $\Omega$ is $|\Omega|=64\times63\times,...\times 57$
+%\end{ExerciseList}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\subsection{An Implementation Well Modelled by Probability}
+	\label{ss:r_prob1}
+%	 We have seen that the probability framework describes well some simple situations in which the number of expected outcomes (elementary events ) are finite. situations where the expected outcome. Some examples of it are the extractions in Example~\ref{ex:replace} and \ref{ex:no_replace}, the choice of a random person which is the idealized model that Statisticians use to perform surveys, see Example~\ref{ex:person}. In general, for any $n \in \mathbb N $ and any $p_1, \ldots, p_n$ choice of probabilitied as in Deifnition~\ref{d:prob_elementary}, it is possible to define a concrete sample space $\Omega = \{\omega_1, \ldots, \omega_n\}$ for which 
+%\bel{e:rcode_sample}{ 
+%\mathbb P(\{\omega_i\}) = p_i
+%} 	
+	In this section we give some possible 
+	
+	Given an $n$ and some probabilities on elementary events $p_1,..., p_n$, see Definition~\ref{d:}, the computer is able to generate random outcomes with those probabilities. The following chunk of code, for instance, generates a natural number between $1$ and $6$ with probabilities proporional to \textit{p\_aux}, that is, with probabilities \textit{p}.  
+<<>>= 
+n <- 6  # The number of elements of our sample space 
+p_aux <- c(1,2,3,0.5,1,5) # Here I take the $p_i$ to be positive numbers whose sum needs not to be 1 
+p <- p_aux/sum(p_aux) # Now I normalise them so that they sum 1
+sample(1:n, 1, prob = p  ) # The output of the sample
+@
+	
+	This means that,  defining $\omega_i = \text{"The output is $i$ "}$, $\Omega = \{\omega_1, \ldots ,\omega_n\}$ and $p_1,\ldots, p_n$ is a good model for the above output. Other systems for which the probability models work well that we have introduced before are Example~\ref{e:} and the random extractions of balls from an urn in Example~\ref{}.\\
+
+	This is to be put later, after introducing  inedependent sampling or maybes  
+	Extractions with or without replacement. The R command sample allows to implement the model of extractions with or without replacemen.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONDITIONAL PROBABILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

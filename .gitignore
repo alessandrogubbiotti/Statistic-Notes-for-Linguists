@@ -1,0 +1,61 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.nls
+*.out
+*.pdfsync
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdy
+*.tdo
+
+# Beamer specific
+*.nav
+*.snm
+*.vrb
+
+# Glossaries
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+
+# Minted/Pygments
+*.pyg
+_minted*
+
+# TikZ / pgfplots externalization
+*.dpth
+*.md5
+*.auxlock
+
+# Misc
+*.lol
+*.thm
+*.upa
+*.upb
+
+# Build directories
+latex.out/
+

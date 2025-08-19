@@ -1,0 +1,61 @@
+
+\section{Introduction}
+
+
+\subsection{ Scope of the Lecture Notes}
+
+	The first part of the present lecture notes is an introduction to probability theory. Many texts that undertake this task exist and it would be pretensious to think that these notes are particularly better than other existing ones. However, if the notes are oriented towards a mathematical audience, they often omit to explain the reason why objects are introduced and why measure theory is used as a framework to model probability theory. As an example, the notion of sample space is considered as a god given notion, while from a probabilistic point of view it is simply the set of some particular events, the elementary events. The goal of the first part of lecture notes is to fill this gap by providing a mathematically sound introduction (though only in the discrete setting) to probability theory from the point of view of probability theory, rather than from the mesure theoretic point of view. Therefore, the target audience for this part are novice to the field  but also those who, having taken a probabity theory course, or, better said, a measure theory course, would like to take this notes as a starting point to rethink at the already known notions from a more probabilistic perspective.  
+	The second part consist in a brief and rigorous introduction to statistics. Statistics is a wide subject whose claims are often misinterpreted due to lack of rigor. The aim of these notes is to introduce simple models, and to fully develop them pointing out the critcal points and statements. The target audience are novice to the field and mathematician wishing to see some applications of statistics without delving into the general theory.   
+
+\subsection{ Models and claims of empirical sciences}
+	\label{ss:probability_motivation}
+	One of the pillars of any science is the scientific method. To validate its claims, the measurable outcomes of a scientific theory must be compared with the data that can be collected in the real world. While there are discussions on how to infer information from the collected data, there is no discussion on the fact that a theory must prove its correctness through quantitative considerations.\\
+
+When dealing with more quantitative, low level sciences such as physics, claims are very precise ( think at $f = ma$ ot $ f = G m_1 m_2/r^2$). Surprisingly (see \cite{wigner}), those kind of claims involve few variables and, up to a certain degree of precision of the measuring instrument, do not involve uncertainty and are universally valid. To validate the formula $f = ma$ it is sufficient to measure the force, the mass and the acceleration of an object and to check whether the relation $f = ma$ holds.\\ 
+The situation changes completely when dealing with more high level, involved and empirical sciences, such as economics, linguistics or social sciences. As the next example shows, most of the times, constitutive equations such as $f = ma$ - the ultimate goal of any science - have to be abandoned in favour of empirical relations which are true only to some extent and do involve probability theory. \\
+	Indeed, consider a linguistic experiments in which respondents are subjected to a stimulus specifically studied to make them say a word. Suppose that this word can be spelled in two different ways, a formal standard  variant and a dialectal variant, and the experiment aims to study the factors determining the choice.  
+What would correspond to a deterministic, fundamental relation, and a complete solution to the research problem would be a set of variables $v_1, v_2, \ldots $ and a function that relates the variables to the choice made by the respondent. Concretely, examples of such variables could be $v_1,$ the age of the respondent, $v_2$, his/her degree of education, $v_3$, the city where he/she was born, and other variabls could indicate the context in which the respondent is found when saying the word, his/her family education. A fundamental relation would then be a function $f$ that associates to each possible values the variables $v_1, \ldots,$ can attain the variant used by a respondant for which the variables $v_1,\ldots$, namely
+\begin{equation}
+	\label{e:impossible}
+	\begin{array}{ccc}
+		f: \Omega  & \to  & \{ \text{Formal}, \text{Dialectal}\}	\\	
+		v_1,v_2,\ldots & \to & f(v_1,v_2, \ldots) = \text{The variant the respondent will use,}
+	\end{array}
+\end{equation}
+where $\Omega$ is the set of all the possible values for the variables $v_1, v_2, \ldots$.\\
+Even assuming that such relation could in principle be found, it is in practice impossible to obtain and useless, since most of the variables would be unknown to us and the function $f$ would be too complicated. A possible alternative description is given by the following probabilistic model. We loose track of all the variables with the exception of the ones we consider more relevant regard for the study, say $v_1$, $v_2$ and $v_3$. The respondenti will then use the formal spelling with probability  $ p = p(v_1, v_2, v_3)$, that is.  
+\begin{equation}
+	\label{e:possible}
+	f_{\text{eff}}(v_1, v_2, v_3 ) = 
+	\begin{cases}
+	\text{ Formal} & \text{ with probability $ p = p(v_1, v_2, v_3 )$ }
+	\text{ Dialectal} & \text{ with probability $1- p =  1- p(v_1, v_2, v_3 )$}
+	\end{cases}
+\end{equation}
+
+ The difference between the two models is clear. In the first case we can make deterministic claims such as" a respondent for which $v_1 = 39$, $v_2 = 0.3$ (on a scale between 0 and 1 computed in some way), $v_3$ = Paris, $v_4 =$ Formal,... will use the Dialectal variable". The second model allows to make probabilistic claims such as "If the respondent has an higher degree of education ($v_2$), it is more probable that he/she will use the formal variant(that is, $p$ is increasing in $v_2$)". We refer to Section~\eqref{ss:causality} for a discussion of causality in a simple effectivce model known as linear regression model. With effective models such as \eqref{e:possible}, we loose the notion of causality. 
+ 
+
+Lastly we note that the relation between \eqref{e:impossible} and \eqref{e:possible} is very complicated and is the object of study in many specific models. We simply note here that the probability present in \eqref{e:possible} stems up?? from the uncertainty or lack of knowledge we have in the variables $v_4, .. $ and on the relation of $f$ in \eqref{e:impossible}.
+
+
+% I have tried to think for a moment at the relation between the effective model and the determinimstic one. In the case of particle models, the effective model is governed by the Einstein relation, for some reason that I fail to see 
+% In the case of the model for the linguistic experiment the situation is still more awkward, since the "difference" between $f_{\text{eff}}$ and $f$ is a random variable taking values $0$ if they agree, or 1, if they disagree. The variables $v_4...$ are also quite artificial. Why to chosse $p = p(v_1, v_2, v_3)$? 
+% In other words, what are the properties we would like to see in the error term, that is, the difference term? 
+% So, randmness comes from substituting the precise values of $v_4, ... $ by a statistical description, makng the assumption that a person's personal $v_4, ...$ come from a set of possible values with a given distributiokn. 
+% Therefore $f_{eff}$ comes from the how the deterministic function depends on teh varaibles $v_1$, ..., $v_3 $ and also from how the distribution $v_4, ..., $. Well they depend on the model. 
+% In the picture of coin tosses, the idea is that the elemets of the $\Omega$, the space containing all the variables (initial positiokn, initial forces...), when looking at the foliatiokn induced by looking at the variable of interest, that is $H$ or $T$, all mix up, in such a way that if we take a neighbour (which topology? For sure is a topology defined independntly from the $H$ or $T$), the lines all mix up and approximately 1/2 come from $H$ and 1/2 from $T$. this proporiton does not change if I change the points. 
+% Similarly, on $\Omega$ in our example, the level sets of Formal Dialectal should not depend on the particular $v_4$, .. chosen, if I want $p$ to be independnt from the other variables. (The error term to be independent from the variables if I loose the pointwise evaluation)
+% Maybe I need to ci
+
+\subsection{ The role of Probability and Statistics}	
+	The role of probability is used to model the uncertainty and the lack of knowledge and is the framework within which statistics works. In the Introduction~\ref{s:intro_stats} we introduce the notion of probability model and we point out that in order to infer information from the real world data we need a probabilistic model. Here we anticipate the main 
+	  It allows to see the data obained from the real word, say the experiment introduced before where a respondent says a word which has two possible spellings, as an instance between many possible and legit outcomes: other results could have been possible but we observe only one (this is the idea of the sample space in Definition~\ref{d:sample_space} and Section~\ref{ss:models} for more details). Moreover, it The goal of probability is to introduce a framework where data generated in 1a random way (that is, in such a way that other results could have been possible) can be rigorously defined, see Definition~\ref{d:random_variable}. The role of statistics is the converse one, and, once assumed that the real world data is generated as models given by probability theory, to infer from the data information about the model.
+As an example on what statistics does think about trying to estimate the parameter $p = p(v_1,v_2, v_3)$ in the probabilistic model introduced before. 
+%	\subsection{ The Material in the Notes}i
+%	The first part of the course consists on a basic review of Probability Theory in the discrete setting. We will introduce the sample space, motivated by events, and give the basic definitions of probability, conditional probability and random variables. In this notes we stress particularly in the notion of independence, and for this reason we spend some time in Section~\ref{s:} to point out that, when two sample spaces are seen as restrictions (see Definition~\ref{d:}), there are many possible ways to extend both in a compatible way. The notion of independence will be at the basis of the model of Bernoulli trials, introduced in Definition~\ref{d}. 
+%In the second part deals with Statistics and is the core of the course. Statistics uses the formalism of the first part of the notes to introduce effective models and to validate them. In the first part we will deal with \emph{hypothesis testing}, introducing the fundamental and often missused concept of p-value. The topic of hypothesis testing studies possible decision algorithms that allow to decide whether to reject an hypothesis (null hypothesis) in favour of an alternative hypothesis or not. We then deal with \emph{regressions}, which will provide with algorithms to find empirical relations between data. Finally we conclude with some, namely Principal Component Analysis, Cluster Analysis and Decision Trees. \\
+
+%\subsection{Evaluation }
+%Students will be evaluated on the basis of weakly exercises and, for the secon part of the course, on the basis of a practical and very important  Linguistic Data Analysis projects, which accounts for 1/3 of the total vote.
+
