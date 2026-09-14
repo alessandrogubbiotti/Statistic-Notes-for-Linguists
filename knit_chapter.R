@@ -30,4 +30,7 @@ knit(input = rnw_path, output = tex_path)
 message("✓ Knitted ", rnw_path, " → ", tex_path)
 message("✓ Figures stored in: ", fig_path)
 
-
+# knitr only inserts its LaTeX header (knitrout, kframe, \hlnum..., \maxwidth)
+# when the knitted file has \documentclass; the chapters don't, so write it out.
+render_latex()
+writeLines(knitr:::make_header_latex(""), file.path("build", "knitr_header.tex"))

@@ -264,7 +264,7 @@ Under this model, the probability of seeing the result $\underline x = (x_1, \ld
 \hlkwd{mean}\hldef{(Variant_numeric)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.6995
+## [1] 0.6933
 \end{verbatim}
 \begin{alltt}
 \hlcom{# This is a good guess for the coin parameter $p$. }
@@ -296,7 +296,7 @@ Note that, in this case, the data has been actually generated using a Bernoulli 
 \hldef{real_p}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.70049
+## [1] 0.700764
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -309,7 +309,7 @@ Note that, in this case, the data has been actually generated using a Bernoulli 
 \hlkwd{head}\hldef{(Sampled_results)}
 \end{alltt}
 \begin{verbatim}
-## [1] Not Bilingual Bilingual     Bilingual     Bilingual     Bilingual    
+## [1] Bilingual     Bilingual     Not Bilingual Not Bilingual Bilingual    
 ## [6] Bilingual    
 ## Levels: Bilingual Not Bilingual
 \end{verbatim}
@@ -325,26 +325,26 @@ Note that, in this case, the data has been actually generated using a Bernoulli 
 \hlkwd{sample}\hldef{(  Moscow_population,} \hlkwc{size} \hldef{= sample_size ,}  \hlkwc{replace} \hldef{= T)}
 \end{alltt}
 \begin{verbatim}
-##   [1] Bilingual     Bilingual     Not Bilingual Bilingual     Bilingual    
-##   [6] Bilingual     Not Bilingual Bilingual     Not Bilingual Bilingual    
-##  [11] Not Bilingual Not Bilingual Bilingual     Not Bilingual Bilingual    
-##  [16] Bilingual     Bilingual     Bilingual     Not Bilingual Not Bilingual
+##   [1] Not Bilingual Bilingual     Bilingual     Bilingual     Not Bilingual
+##   [6] Bilingual     Bilingual     Not Bilingual Not Bilingual Not Bilingual
+##  [11] Not Bilingual Not Bilingual Bilingual     Not Bilingual Not Bilingual
+##  [16] Bilingual     Bilingual     Bilingual     Bilingual     Bilingual    
 ##  [21] Bilingual     Bilingual     Bilingual     Bilingual     Bilingual    
-##  [26] Not Bilingual Not Bilingual Bilingual     Not Bilingual Bilingual    
-##  [31] Bilingual     Bilingual     Bilingual     Bilingual     Not Bilingual
-##  [36] Bilingual     Not Bilingual Bilingual     Not Bilingual Bilingual    
-##  [41] Not Bilingual Bilingual     Bilingual     Bilingual     Bilingual    
-##  [46] Bilingual     Bilingual     Bilingual     Not Bilingual Bilingual    
-##  [51] Not Bilingual Bilingual     Bilingual     Bilingual     Bilingual    
-##  [56] Bilingual     Bilingual     Bilingual     Bilingual     Bilingual    
-##  [61] Bilingual     Bilingual     Bilingual     Bilingual     Bilingual    
+##  [26] Not Bilingual Bilingual     Not Bilingual Not Bilingual Bilingual    
+##  [31] Bilingual     Not Bilingual Bilingual     Not Bilingual Not Bilingual
+##  [36] Not Bilingual Bilingual     Not Bilingual Not Bilingual Bilingual    
+##  [41] Bilingual     Bilingual     Not Bilingual Not Bilingual Bilingual    
+##  [46] Not Bilingual Bilingual     Not Bilingual Bilingual     Bilingual    
+##  [51] Bilingual     Bilingual     Bilingual     Not Bilingual Bilingual    
+##  [56] Bilingual     Bilingual     Not Bilingual Not Bilingual Bilingual    
+##  [61] Bilingual     Not Bilingual Bilingual     Not Bilingual Bilingual    
 ##  [66] Bilingual     Not Bilingual Bilingual     Bilingual     Bilingual    
-##  [71] Not Bilingual Bilingual     Not Bilingual Bilingual     Bilingual    
-##  [76] Bilingual     Bilingual     Bilingual     Bilingual     Bilingual    
-##  [81] Bilingual     Bilingual     Not Bilingual Bilingual     Bilingual    
-##  [86] Bilingual     Bilingual     Bilingual     Not Bilingual Bilingual    
-##  [91] Not Bilingual Not Bilingual Not Bilingual Bilingual     Not Bilingual
-##  [96] Bilingual     Not Bilingual Bilingual     Bilingual     Bilingual    
+##  [71] Bilingual     Bilingual     Bilingual     Bilingual     Bilingual    
+##  [76] Not Bilingual Bilingual     Bilingual     Bilingual     Bilingual    
+##  [81] Not Bilingual Bilingual     Bilingual     Bilingual     Not Bilingual
+##  [86] Not Bilingual Bilingual     Bilingual     Not Bilingual Not Bilingual
+##  [91] Bilingual     Bilingual     Not Bilingual Bilingual     Bilingual    
+##  [96] Bilingual     Bilingual     Bilingual     Not Bilingual Not Bilingual
 ## Levels: Bilingual Not Bilingual
 \end{verbatim}
 \begin{alltt}
@@ -352,9 +352,9 @@ Note that, in this case, the data has been actually generated using a Bernoulli 
 \hlkwd{rbinom}\hldef{(} \hlkwc{n} \hldef{= sample_size,} \hlkwc{size} \hldef{=} \hlnum{1}\hldef{,} \hlkwc{prob} \hldef{=} \hlkwd{mean}\hldef{(}\hlkwd{as.numeric}\hldef{(Moscow_population} \hlopt{==} \hlsng{'Bilingual'}\hldef{)))}
 \end{alltt}
 \begin{verbatim}
-##   [1] 0 1 0 1 0 0 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1
-##  [38] 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 1 0 0 0 1 0 0 0 0 0 1 0 1 1 1 1 0 1 0 0 0 1
-##  [75] 0 0 0 0 1 0 1 0 1 0 1 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1
+##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 0 1 1 0
+##  [38] 0 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1
+##  [75] 1 1 0 1 0 1 1 1 1 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 1 1
 \end{verbatim}
 \begin{alltt}
 \hlcom{# have the same distribuition. rbinom samples from an abstract population}
@@ -1107,7 +1107,7 @@ A random variable can be regarded as an abstract population and what we will say
 \hlkwd{mean}\hldef{(Moscow_heights)}
 \end{alltt}
 \begin{verbatim}
-## [1] 177.0024
+## [1] 176.9977
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -1123,13 +1123,13 @@ A random variable can be regarded as an abstract population and what we will say
 \hldef{sample_mean}
 \end{alltt}
 \begin{verbatim}
-## [1] 177.0609
+## [1] 177.02
 \end{verbatim}
 \begin{alltt}
 \hlkwd{mean}\hldef{(Moscow_heights)}
 \end{alltt}
 \begin{verbatim}
-## [1] 177.0024
+## [1] 176.9977
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -1145,7 +1145,7 @@ A random variable can be regarded as an abstract population and what we will say
 \hlkwd{mean}\hldef{(reaction_times)}
 \end{alltt}
 \begin{verbatim}
-## [1] 1.630567
+## [1] 1.683053
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -1324,7 +1324,7 @@ Similarly for the reaction time experiment
 \end{alltt}
 
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# -- Attaching core tidyverse packages ---------------------------------------------------------------------------------------------------------------------------------------------------- tidyverse 2.0.0 --\\\#\# v dplyr \ \ \ \ 1.1.4 \ \ \ \ v readr \ \ \ \ 2.1.5\\\#\# v forcats \ \ 1.0.0 \ \ \ \ v stringr \ \ 1.5.1\\\#\# v ggplot2 \ \ 3.5.2 \ \ \ \ v tibble \ \ \ 3.3.0\\\#\# v lubridate 1.9.4 \ \ \ \ v tidyr \ \ \ \ 1.3.1\\\#\# v purrr \ \ \ \ 1.0.4 \ \ \ \ \\\#\# -- Conflicts ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- tidyverse\_conflicts() --\\\#\# x dplyr::filter() masks stats::filter()\\\#\# x dplyr::lag() \ \ \ masks stats::lag()\\\#\# i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors}}\begin{alltt}
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --\\\#\# v dplyr \ \ \ \ 1.1.4 \ \ \ \ v readr \ \ \ \ 2.1.5\\\#\# v forcats \ \ 1.0.0 \ \ \ \ v stringr \ \ 1.5.1\\\#\# v ggplot2 \ \ 3.5.2 \ \ \ \ v tibble \ \ \ 3.3.0\\\#\# v lubridate 1.9.4 \ \ \ \ v tidyr \ \ \ \ 1.3.1\\\#\# v purrr \ \ \ \ 1.0.4 \ \ \ \ \\\#\# -- Conflicts ------------------------------------------ tidyverse\_conflicts() --\\\#\# x dplyr::filter() masks stats::filter()\\\#\# x dplyr::lag() \ \ \ masks stats::lag()\\\#\# i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors}}\begin{alltt}
 \hldef{sample_size} \hlkwb{<-} \hlnum{100000}
 \hldef{data} \hlkwb{<-} \hlkwd{rexp}\hldef{(sample_size)}
 \hlcom{## breaks is the vector of the endpoints of the segments in the xx axis }
@@ -1518,62 +1518,62 @@ Note that the following step is crucial to compute the distribution of $X$ if $H
 \hldef{many_sampled_X}
 \end{alltt}
 \begin{verbatim}
-##    [1] 4.2 6.8 7.4 5.0 3.8 6.0 5.8 6.0 4.0 2.8 3.2 3.2 4.0 4.0 4.4 3.8 4.4 5.4
-##   [19] 4.6 5.8 4.4 4.4 5.2 6.4 5.8 4.0 5.8 4.0 3.6 4.0 3.0 2.2 5.4 4.8 4.0 2.4
-##   [37] 7.6 4.6 4.2 4.0 6.8 2.8 5.4 3.2 4.0 2.8 4.8 5.2 4.2 6.4 5.0 4.4 3.2 3.8
-##   [55] 4.4 4.0 5.2 4.0 5.0 3.8 5.8 3.2 7.0 4.0 2.8 4.0 5.2 4.2 6.6 4.4 5.2 5.4
-##   [73] 3.0 6.0 4.4 4.6 3.6 3.6 4.4 6.8 3.0 4.8 4.4 3.8 4.8 5.6 4.2 5.4 5.4 4.6
-##   [91] 5.0 4.6 3.8 4.4 5.0 6.0 2.0 4.0 4.6 5.0 3.8 3.8 3.6 4.8 5.2 7.0 3.8 5.0
-##  [109] 3.6 3.8 5.8 3.8 5.0 3.4 4.0 4.4 4.4 3.4 2.6 6.6 3.8 4.4 5.8 4.0 4.0 4.0
-##  [127] 6.0 4.0 2.2 4.0 4.2 4.6 4.2 3.2 4.8 4.8 3.8 2.2 5.6 3.2 4.8 4.6 4.4 4.8
-##  [145] 3.8 4.6 5.0 4.6 4.2 5.4 4.0 3.4 1.4 6.0 5.2 1.4 6.0 4.8 3.6 4.4 3.6 5.8
-##  [163] 4.6 3.4 5.6 5.0 5.0 6.0 4.2 4.0 4.2 4.8 5.6 5.8 3.6 5.0 5.4 4.8 4.0 5.4
-##  [181] 4.0 5.8 6.4 3.6 3.6 4.8 4.0 3.4 4.6 6.0 4.4 5.0 6.4 3.4 4.0 4.6 4.4 5.2
-##  [199] 2.2 2.8 5.6 5.4 3.2 5.6 4.6 3.4 3.4 5.0 4.2 4.2 5.8 4.4 5.4 4.8 5.6 6.8
-##  [217] 2.2 5.2 6.6 3.2 6.2 4.2 4.2 4.0 4.2 2.8 5.2 4.6 4.8 6.2 3.6 4.4 4.8 4.4
-##  [235] 5.4 6.0 4.2 3.6 4.8 5.6 3.4 4.8 3.8 5.2 4.8 5.0 3.8 5.2 3.2 4.2 4.0 5.2
-##  [253] 2.2 2.6 5.0 4.6 4.0 4.4 4.8 3.0 5.2 7.6 4.0 5.2 4.8 6.2 3.2 5.4 2.8 5.4
-##  [271] 4.8 4.8 4.0 5.6 2.6 4.2 5.0 3.0 4.0 6.4 5.2 3.2 3.6 4.6 4.2 6.4 5.4 7.0
-##  [289] 4.6 4.2 4.8 6.2 4.4 4.8 4.2 3.6 3.2 5.4 5.8 4.4 3.4 6.8 4.6 6.0 3.6 6.0
-##  [307] 4.6 3.0 5.4 3.8 3.4 4.4 3.0 4.2 3.8 6.0 3.8 4.2 4.0 4.2 4.4 5.8 3.6 5.2
-##  [325] 4.0 2.6 6.8 3.2 3.4 5.2 3.8 4.2 4.4 3.2 2.8 4.6 3.8 4.6 6.4 1.8 4.4 4.6
-##  [343] 5.2 2.4 3.4 5.2 4.8 5.8 5.0 5.6 5.2 3.4 7.0 4.2 5.0 6.6 5.6 3.4 3.2 5.8
-##  [361] 3.6 4.6 3.6 5.2 5.2 3.6 3.4 6.2 3.8 4.6 3.4 4.8 5.2 5.0 2.8 3.6 4.2 5.6
-##  [379] 5.4 5.4 4.0 5.2 3.4 3.8 3.6 3.8 5.2 6.6 3.8 6.2 4.6 5.2 3.0 4.8 2.8 2.8
-##  [397] 4.8 5.2 4.2 5.0 5.2 4.8 6.2 5.4 6.0 5.0 3.8 6.6 5.6 3.8 3.6 3.4 3.6 5.6
-##  [415] 6.2 3.2 3.8 3.2 6.8 5.0 4.2 4.6 4.2 4.6 5.8 4.0 5.0 6.8 3.8 3.6 5.2 2.4
-##  [433] 4.4 4.4 3.6 5.2 6.6 3.8 6.0 5.8 5.4 3.6 5.2 4.0 4.8 2.8 5.0 4.6 6.0 4.8
-##  [451] 4.4 3.8 4.8 4.4 3.0 4.0 6.2 4.4 4.6 5.0 5.6 3.8 3.2 4.0 4.4 4.4 6.6 4.0
-##  [469] 5.6 3.8 2.4 5.4 4.2 3.4 4.0 6.0 5.0 2.6 5.4 5.0 4.4 5.2 4.8 5.6 4.0 4.2
-##  [487] 4.6 5.6 4.4 4.0 4.8 5.0 6.0 3.8 7.2 2.2 3.4 2.8 5.4 4.4 5.2 6.4 4.2 6.4
-##  [505] 5.4 4.0 5.0 3.6 5.4 4.2 4.2 6.8 1.6 2.6 3.2 4.4 6.0 4.6 5.2 7.6 4.4 3.0
-##  [523] 4.8 2.0 4.2 4.6 4.8 5.6 6.0 4.4 4.0 4.2 2.6 6.2 4.8 4.0 3.2 5.8 4.4 5.2
-##  [541] 2.6 5.0 4.4 4.2 5.0 4.6 4.4 4.2 3.8 6.0 6.2 6.0 5.0 5.4 6.0 4.0 3.6 2.0
-##  [559] 6.0 5.4 5.2 4.2 4.2 4.8 3.8 4.2 3.4 4.2 3.0 3.4 2.6 4.4 4.6 3.8 4.6 5.0
-##  [577] 3.4 3.8 3.6 4.0 4.0 4.8 3.4 4.8 5.0 3.2 3.6 3.8 4.6 6.2 6.6 4.6 3.4 4.6
-##  [595] 5.8 3.8 4.2 5.2 5.8 5.2 4.8 4.8 3.2 5.4 3.8 3.6 6.8 4.0 5.4 5.6 5.8 5.2
-##  [613] 5.4 5.8 5.0 2.2 4.0 3.6 5.0 5.8 6.8 4.6 4.4 4.6 3.6 5.8 3.8 5.4 5.2 5.2
-##  [631] 3.6 5.6 4.6 5.2 3.8 2.2 6.6 6.0 6.6 4.2 3.2 5.0 5.4 5.4 5.2 6.8 5.0 4.2
-##  [649] 7.2 5.2 4.2 4.4 6.8 4.0 6.8 5.6 4.8 5.4 4.8 6.8 2.8 4.8 3.4 5.0 3.2 4.0
-##  [667] 5.0 5.4 4.2 4.2 6.2 5.4 4.0 2.4 3.6 4.0 5.6 3.6 2.8 5.0 5.0 5.2 5.0 6.8
-##  [685] 4.0 3.6 4.8 4.6 4.4 5.4 4.4 3.6 6.0 3.8 5.4 3.4 3.0 5.6 3.8 5.6 3.2 4.8
-##  [703] 6.0 5.6 6.0 4.4 2.6 6.8 7.0 5.0 4.6 4.8 3.4 3.6 3.0 4.6 5.2 4.2 5.0 5.6
-##  [721] 5.4 5.6 3.6 6.8 4.6 6.0 4.4 6.0 5.4 4.4 4.0 4.6 2.8 3.4 5.2 4.6 3.8 2.6
-##  [739] 2.8 3.2 4.6 4.6 6.6 6.0 4.6 3.0 4.2 2.8 3.8 5.4 6.2 6.8 2.0 2.6 4.8 3.4
-##  [757] 5.4 4.0 5.2 6.0 4.4 6.2 3.0 5.8 6.8 5.6 3.6 4.6 4.2 6.0 4.6 4.6 3.4 2.2
-##  [775] 5.4 6.0 4.8 3.4 6.0 4.8 4.4 4.2 5.0 4.6 3.0 7.0 7.0 3.6 4.8 4.0 3.4 5.8
-##  [793] 5.4 3.0 2.8 4.4 4.0 5.8 4.8 4.2 3.4 5.0 5.2 3.8 4.6 2.0 6.2 5.2 5.2 4.8
-##  [811] 5.2 4.6 4.0 2.6 5.8 3.2 4.4 4.8 4.6 5.4 3.0 5.6 2.2 3.2 5.4 2.8 5.4 6.2
-##  [829] 5.8 5.0 5.6 3.4 3.4 3.6 4.6 4.6 5.2 4.8 4.0 4.4 5.0 5.2 5.6 3.0 6.0 3.2
-##  [847] 2.6 2.8 4.0 4.4 5.8 4.0 4.0 5.2 7.2 7.2 4.4 3.6 2.8 5.0 4.0 5.6 4.6 4.4
-##  [865] 3.2 5.8 4.6 5.8 5.0 4.6 2.8 4.2 2.2 5.2 4.6 4.4 4.0 2.0 5.4 4.0 6.0 4.8
-##  [883] 3.6 6.2 4.4 5.6 3.8 4.2 4.8 4.2 4.2 5.4 4.4 5.2 7.8 6.0 2.0 5.0 2.6 6.2
-##  [901] 3.8 4.0 5.0 4.8 5.4 5.6 4.8 3.0 4.2 5.2 5.2 4.4 5.0 6.0 4.6 5.4 4.6 6.4
-##  [919] 5.6 3.4 5.2 4.2 4.0 5.8 4.4 3.6 3.2 5.4 5.0 3.2 4.6 4.4 5.8 6.2 5.4 5.8
-##  [937] 7.0 3.8 5.2 3.2 5.2 5.2 6.0 4.6 5.4 7.0 4.0 5.6 3.0 5.8 4.8 3.0 5.6 3.0
-##  [955] 4.0 4.2 2.6 4.2 4.2 3.2 4.8 4.2 7.0 4.0 7.0 6.6 3.6 3.4 5.0 5.6 4.8 4.8
-##  [973] 4.6 3.4 4.6 3.0 3.6 4.4 4.4 4.2 4.0 3.2 6.0 4.8 3.8 5.6 5.2 6.8 4.6 4.2
-##  [991] 5.6 6.6 6.0 3.4 4.6 2.8 3.8 2.2 4.4 4.6
+##    [1] 5.6 4.4 5.2 5.0 6.4 5.2 5.0 4.8 3.6 4.4 7.0 3.6 6.6 3.4 6.2 4.4 5.2 5.6
+##   [19] 5.8 6.2 4.6 4.4 7.6 4.0 3.8 4.8 4.0 3.8 5.0 5.6 5.4 6.0 3.4 3.6 5.0 4.4
+##   [37] 2.6 5.4 5.8 3.4 5.0 4.8 6.2 6.6 3.8 5.2 4.8 2.2 6.0 5.0 6.0 5.0 5.8 3.4
+##   [55] 5.6 5.8 4.8 6.0 4.0 5.0 6.6 3.8 4.2 5.6 4.6 3.6 4.0 6.8 3.4 6.4 5.4 4.6
+##   [73] 2.6 2.8 5.0 5.8 3.0 3.2 5.6 6.0 5.6 4.0 6.8 4.8 5.8 6.2 3.8 6.2 2.4 2.4
+##   [91] 4.0 3.2 3.6 6.6 4.2 3.2 4.4 6.4 2.6 5.8 5.4 4.2 2.8 5.2 3.4 6.4 5.4 5.8
+##  [109] 4.8 4.2 4.8 4.0 5.2 4.0 5.4 4.8 1.4 4.8 4.4 6.2 4.8 3.6 6.8 6.2 2.4 4.0
+##  [127] 3.0 4.4 5.0 4.8 5.0 3.6 2.8 3.6 3.2 2.8 2.6 3.4 3.8 2.8 5.0 3.8 3.4 5.4
+##  [145] 5.4 6.6 2.0 7.0 4.8 4.8 6.6 5.2 3.8 3.0 5.2 2.0 3.6 2.8 4.2 6.0 3.8 5.2
+##  [163] 5.2 2.6 5.2 4.6 5.6 4.8 6.2 4.8 5.4 4.4 4.2 4.2 6.6 4.2 5.4 3.6 6.0 4.0
+##  [181] 4.6 3.8 3.8 5.0 3.2 3.0 3.6 3.8 3.4 3.8 5.6 3.0 5.4 5.8 5.4 5.0 4.4 4.4
+##  [199] 6.2 4.2 5.0 3.2 2.4 5.2 5.4 6.0 3.2 5.6 4.4 3.0 5.2 3.4 4.6 2.8 6.6 5.4
+##  [217] 4.0 6.6 5.4 3.6 5.6 5.6 5.6 4.4 4.0 3.8 3.0 4.8 4.8 4.8 4.8 3.8 4.2 4.4
+##  [235] 4.0 3.2 6.2 6.8 4.8 4.2 4.2 5.0 4.6 3.8 6.8 3.0 4.4 4.4 3.2 4.0 4.0 3.4
+##  [253] 6.2 4.6 4.2 3.0 6.8 4.0 4.2 4.0 4.4 4.2 4.4 4.4 4.2 4.8 4.2 4.4 3.2 4.6
+##  [271] 3.8 5.2 3.6 5.4 6.2 5.8 5.6 2.6 3.6 4.0 2.8 3.2 5.2 6.2 2.8 4.8 5.6 3.8
+##  [289] 3.8 3.2 5.0 3.6 5.4 3.4 3.4 2.4 1.6 5.4 5.0 6.4 5.0 3.4 5.4 5.0 3.2 5.2
+##  [307] 4.0 5.4 4.0 4.4 7.0 6.0 5.0 3.4 5.2 4.8 5.8 4.4 4.2 6.2 5.6 2.8 5.8 5.0
+##  [325] 6.0 4.0 6.2 7.4 4.6 4.6 3.4 6.2 4.4 3.0 5.6 2.0 3.4 5.2 2.2 4.0 5.8 4.8
+##  [343] 3.2 4.6 4.2 3.4 5.2 4.2 4.6 5.4 2.8 5.4 2.8 4.8 4.2 4.0 4.0 3.8 6.6 4.4
+##  [361] 3.8 7.0 4.6 4.6 3.8 4.2 4.8 4.0 3.8 4.8 3.0 4.4 6.6 2.2 2.4 4.4 4.8 3.0
+##  [379] 5.8 4.2 4.2 4.8 4.4 3.4 4.6 3.4 4.6 1.8 4.4 4.8 6.6 3.8 4.0 5.2 3.8 4.8
+##  [397] 4.0 5.6 4.8 4.4 3.0 6.2 3.8 4.4 6.2 5.0 3.0 3.2 4.4 5.4 5.8 4.4 5.0 3.8
+##  [415] 6.0 4.8 4.4 6.2 5.0 3.6 4.8 4.2 6.6 2.8 4.6 5.4 4.6 4.4 4.6 3.8 4.0 5.0
+##  [433] 5.6 5.2 3.0 6.2 5.2 4.0 5.8 5.0 3.0 6.6 3.0 6.8 4.0 4.6 3.2 4.2 2.6 5.4
+##  [451] 4.8 3.8 5.8 5.2 4.4 5.0 5.2 3.4 4.8 5.6 5.0 5.6 4.4 4.8 3.8 5.6 4.2 6.2
+##  [469] 6.0 4.4 4.4 2.4 5.2 3.0 6.0 2.0 4.4 5.2 4.4 5.8 3.8 4.4 5.8 3.2 6.0 5.0
+##  [487] 4.8 3.6 5.0 5.0 5.2 1.4 6.4 5.8 6.4 7.2 4.6 4.8 5.0 6.2 3.2 4.2 4.8 5.6
+##  [505] 1.6 3.8 6.8 6.0 4.2 5.8 4.2 4.4 5.8 3.0 5.0 3.4 5.4 6.0 5.0 5.4 4.0 4.2
+##  [523] 4.2 5.2 1.8 5.6 4.8 2.4 3.2 4.6 4.4 4.6 4.4 3.0 4.2 4.6 2.6 5.8 4.6 5.0
+##  [541] 5.2 2.6 2.8 2.2 4.6 3.4 5.2 3.4 4.2 4.2 4.6 5.0 4.8 4.8 4.8 6.2 4.4 2.0
+##  [559] 5.8 6.0 6.2 3.0 3.4 3.8 4.0 6.2 5.4 4.4 4.4 5.0 5.0 4.4 5.8 2.8 6.2 3.2
+##  [577] 2.4 5.4 4.0 5.0 2.6 4.6 3.0 5.4 5.2 5.2 4.0 5.2 3.0 5.2 4.0 4.2 6.0 5.2
+##  [595] 6.6 4.0 5.0 3.8 5.2 6.4 3.8 3.2 5.2 5.4 3.6 5.0 4.0 5.2 3.4 4.6 3.6 2.8
+##  [613] 3.6 5.2 2.0 3.8 1.6 4.6 2.8 3.6 3.6 2.6 4.2 1.6 5.4 5.0 4.4 3.6 3.4 4.6
+##  [631] 3.2 4.0 3.8 4.0 5.0 3.2 5.4 4.2 6.0 2.6 5.0 5.6 3.6 2.0 5.4 5.6 5.8 3.6
+##  [649] 4.4 4.0 2.6 4.2 3.2 5.4 6.4 5.0 5.0 3.8 3.4 3.4 5.2 5.0 5.0 4.6 5.8 3.8
+##  [667] 3.8 5.6 6.8 5.0 3.8 4.0 3.2 7.2 6.2 5.8 5.4 1.8 5.2 4.6 6.8 3.4 4.2 3.2
+##  [685] 5.0 4.0 5.8 5.8 5.6 5.8 3.2 5.6 5.0 4.6 6.0 5.8 5.0 2.2 4.8 3.6 4.4 5.8
+##  [703] 6.8 6.0 3.4 2.2 5.6 2.0 4.2 4.4 4.8 3.4 6.2 4.2 4.6 5.2 5.8 6.2 5.6 4.0
+##  [721] 4.6 3.4 5.0 4.8 4.6 5.4 4.4 2.2 4.2 4.0 4.2 4.2 5.8 5.0 3.6 3.2 4.6 6.6
+##  [739] 5.2 5.2 3.4 6.0 6.2 7.4 4.6 5.4 3.6 3.2 3.6 4.2 6.4 4.4 6.0 4.6 4.8 4.6
+##  [757] 5.2 6.2 4.6 6.0 3.8 3.0 6.2 4.0 5.8 4.4 5.4 3.4 5.4 5.0 4.0 5.6 4.0 6.2
+##  [775] 4.0 4.0 5.4 5.6 5.0 6.8 4.4 3.8 5.4 4.0 2.8 3.6 3.6 4.0 3.2 4.4 4.2 5.2
+##  [793] 3.2 6.4 5.0 4.4 6.2 5.6 2.2 3.8 7.6 4.4 2.0 5.2 5.4 6.0 5.8 5.2 6.8 3.8
+##  [811] 5.0 2.6 6.0 7.0 4.4 5.0 3.4 5.6 4.2 4.0 3.0 3.6 4.8 4.2 4.6 5.2 4.2 4.2
+##  [829] 5.6 4.0 5.4 4.2 6.0 5.4 2.6 3.6 5.6 6.2 6.0 4.0 3.6 4.4 2.2 6.2 5.0 5.6
+##  [847] 4.0 4.6 5.2 4.6 3.0 5.8 5.8 5.4 2.2 4.4 4.6 5.2 5.2 3.4 5.4 4.2 4.0 5.4
+##  [865] 3.6 4.8 3.4 4.6 3.2 5.6 5.0 3.0 4.0 5.2 4.2 5.0 5.4 4.4 5.2 2.4 5.4 5.2
+##  [883] 5.2 3.4 5.8 5.8 2.4 3.6 3.0 2.0 3.0 4.8 4.4 3.6 4.6 2.8 4.4 2.6 5.0 3.6
+##  [901] 3.6 6.6 4.0 5.2 3.2 6.6 3.0 5.0 5.6 5.6 6.2 4.6 5.2 5.8 6.0 5.2 3.0 4.8
+##  [919] 6.0 5.6 4.0 2.8 6.8 3.8 5.4 6.6 4.0 2.6 3.8 4.0 4.4 5.6 5.2 5.0 6.2 3.2
+##  [937] 2.6 4.2 4.6 2.2 2.8 5.8 4.4 4.0 4.0 4.6 3.6 5.2 5.8 4.0 4.0 3.8 6.2 5.4
+##  [955] 4.0 4.4 5.2 4.6 3.6 7.0 4.2 5.4 6.8 4.0 4.6 5.2 4.2 6.4 3.0 3.0 4.6 4.6
+##  [973] 5.2 4.0 3.6 5.0 4.2 6.6 5.2 3.8 6.2 5.6 4.8 5.6 3.8 4.0 5.0 4.6 5.0 4.0
+##  [991] 3.6 4.6 5.2 3.2 4.6 3.8 5.8 4.2 5.0 5.0
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -1668,7 +1668,7 @@ Note that the following step is crucial to compute the distribution of $X$ if $H
 \hlkwd{sd}\hldef{(Moscow_heights)}
 \end{alltt}
 \begin{verbatim}
-## [1] 2.887133
+## [1] 2.884541
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -1791,14 +1791,16 @@ he Central Limit Theorem for the Bernoulli Trial Measure tells us that
 \hldef{X} \hlkwb{<-} \hlkwd{rexp}\hldef{(sample_size)}
 \hlkwd{sqrt}\hldef{(}\hlkwd{sum}\hldef{(X} \hlopt{-} \hlkwd{mean}\hldef{(X))}\hlopt{/}\hldef{(sample_size} \hlopt{-} \hlnum{1}\hldef{) )}
 \end{alltt}
-\begin{verbatim}
-## [1] 9.399526e-09
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning in sqrt(sum(X - mean(X))/(sample\_size - 1)): Si è prodotto un NaN}}\begin{verbatim}
+## [1] NaN
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sd}\hldef{(X)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.9617207
+## [1] 0.9364483
 \end{verbatim}
 \begin{alltt}
 \hlcom{## The standard deviation of an exponential random variable is }
@@ -1993,7 +1995,7 @@ The t-test is defined by assuming that . Since the tails of the t-student distri
 \end{alltt}
 
 
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\\\#\# i Please use `linewidth` instead.\\\#\# This warning is displayed once every 8 hours.\\\#\# Call `lifecycle::last\_lifecycle\_warnings()` to see where this warning was generated.}}\end{kframe}
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\\\#\# i Please use `linewidth` instead.\\\#\# This warning is displayed once every 8 hours.\\\#\# Call `lifecycle::last\_lifecycle\_warnings()` to see where this warning was\\\#\# generated.}}\end{kframe}
 \includegraphics[width=\maxwidth]{images/statistics//unnamed-chunk-48-1} 
 \end{knitrout}
 
