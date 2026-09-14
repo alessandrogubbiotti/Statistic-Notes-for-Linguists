@@ -212,9 +212,10 @@ Points in the sample space are events on their own and it might be helpful to co
 	\label{ex:sum_restriction}
 	Two dice have been rolled and suppose that we can only look ate the sum of tehir results. The sample sspace is therefore $\Omega = \{2,3,4,\ldots, 12\}$. If one is allowed to look at each die, then the sample space is $\Omega' = \{11,12,\ldots, 66\}$, and the elementary events in $\Omega$ are not anymore elementary ( apart from 2 and 12) in $\Omega'$. Figure~\ref{f:sum_dice} repressents this situation, which will be made rigorous in Example~\ref{ex:su}
 
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
 \includegraphics[width = 5cm]{Sum_of_Dice.png}
-\label{f:square}
+\caption{The sample space $\Omega$ of the sum of two dice and the refined sample space $\Omega'$ of the two results\label{f:sum_dice}}
 \end{figure}
 
 \end{example}
@@ -224,29 +225,34 @@ Points in the sample space are events on their own and it might be helpful to co
 		\label{ex:two_coin_sample}
 		The sample space of a coin toss can be identified with $\Omega = \{H, T\}$, and if we toss another coint the sample space is again the same. If we consider a large $\Omega'$, depicted in Figure~\ref{f:square}, that contains also the two coin tosses, see Figure~\ref{f:1toss} and \ref{f:2toss}, then we can consider also the sample space of the two coins $\tilde \Omega = \{HH,HT,TH,TT\}$, see Figure~\ref{f:twotosses}.   
 
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
 \includegraphics[width = 5cm]{Square.jpg}
-\label{f:square}
+\caption{A larger sample space $\Omega'$\label{f:square}}
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
 \includegraphics[width = 5cm]{firsttoss.jpg}
-\label{f:1toss}
+\caption{The sample space $\{H,T\}$ of the first coin toss, seen inside $\Omega'$\label{f:1toss}}
 \end{figure}
 
-		\begin{figure}[h]
+		\begin{figure}[H]
+\centering
 \includegraphics[width = 5cm]{secondtoss.jpg}
-\label{f2toss}
+\caption{The sample space of the second coin toss, seen inside $\Omega'$\label{f:2toss}}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
 \includegraphics[width = 5cm]{twotosses.jpg}
-\label{f:twotosses}
+\caption{The sample space $\tilde \Omega = \{HH,HT,TH,TT\}$ of the two coin tosses, seen inside $\Omega'$\label{f:twotosses}}
 \end{figure}
 		Finally, we can look refine the sample space with other events, see Figure~\ref{f:tossandrain}. 
 
-\begin{figure}[h]
+\begin{figure}[H]
+\centering
 \includegraphics[width = 5cm]{twotossesandrain.jpg}
 	\caption{ We can refine the sample space with other events \label{f:tossandrain}}
 \end{figure}
