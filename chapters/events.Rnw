@@ -23,51 +23,83 @@ Events will be usually denoted by capital letters, $A$, $B, \ldots$, and the imp
 
 \subsection{Operations and relations between events}
 \label{ss:operations}
-
-From two events $E$ and $F$ it is possible to consider new events using the operations "or" "and", and "not", namely, to consider $"E \textrm{ and }   F"$, $ "E \textrm{ or } F"$ and "$\textrm{ not } F$". To make a simple example let E= "I will obtain my Ph.D" and F=" Tomorrow it will rain". Then   
-
+From two events $E$ and $F$ it is possible to build new events using the operations "and", "or" and "not", namely, to consider "$E$ and $F$", "$E$ or $F$" and "not $E$". We will write them as 
+\begin{equation}
+	\label{e:and_or_not}
+	E \wedge F = \text{"$E$ and $F$"}, \qquad E \vee F = \text{"$E$ or $F$"}, \qquad \neg E = \text{"not $E$"}.
+\end{equation}
+The event $E \wedge F$ is true when both $E$ and $F$ are true, $E \vee F$ is true when at least one of the two is true (possibly both), and $\neg E$ is true when $E$ is false. To make a simple example, let $E$ = "Tomorrow it will rain" and $F$ = "The coin I am about to toss will show heads", the two events of the Introduction. Then 
 \begin{itemize}
-
-	\item "E and F"= " Tomorrow it will rain and I will obtain my Ph.D ".
-	\item "E or G"= "Tomorrow either it will rain or I will take my Ph.D ".
-	\item "not E"= " I will not take my Ph.D".
-
+	\item $E \wedge F$ = "Tomorrow it will rain and the coin will show heads".
+	\item $E \vee F$ = "Either tomorrow it will rain or the coin will show heads (or both)".
+	\item $\neg E$ = "Tomorrow it will not rain", $\neg F$ = "The coin will not show heads".
 \end{itemize}
 
-Given two events E or F we say that $E$ implies $F$ and we write (for reasons that will become clear in the following) $E \subset F$ if, $F$ is true whenever $E$ is. If $G $ = "Tomorrow it will rain heavily", then $G \subset F$. Note that in general 
-	\begin{itemize}
-		\item $"E$ and $F$" $\subset  E$. \\
-		\item $ F \subset "E  \text{ or}  F"$. 
-	\end{itemize}
+Given two events $E$ and $F$ we say that $E$ \emph{implies} $F$, and we write $E \rightarrow F$, if $F$ is true whenever $E$ is. If $G$ = "Tomorrow it will rain heavily", then $G \rightarrow E$. Note that in general 
+\begin{itemize}
+	\item $E \wedge F \rightarrow E$ and $E \wedge F \rightarrow F$;
+	\item $E \rightarrow E \vee F$ and $F \rightarrow E \vee F$;
+	\item if $E$ is impossible, then $E \rightarrow F$ for every event $F$, and if $F$ is certain, then $E \rightarrow F$ for every event $E$.
+\end{itemize}
+The first two relations say that "and" makes events smaller (harder to be true), while "or" makes them bigger. 
+
+\sidenote{Different sentences can define the same event: $E =$ "The die shows an even number" and $F =$ "The die shows 2, 4 or 6" are the same event. We identify those two propositions with the same event  and we write $E = F$. In particular, any two impossible events are equal and we denote them $\emptyset$.}
 
 
-\subsection{Elementary Events and Sample Space}
 
-There are no inherent restrictions on the events one can define and on which you could try to assign a probability. When doing a probabilistic study, you might wish to restrict your attention and consider only particular events. For example, if we are interested in the result of a coin toss we are interested in the event E="The result of the coin toss is tails" but not on the event "The result of the coin toss is tails and tomorrow it will rain in Rome".\\
+\subsection{Algebra of events}
+\label{ss:algebra}
 
-\begin{example}
-	You are paid by a shop owner to perform a statistical analysis of the number and the kind of customers visiting his shop. For time and economic constraints, you have to choose what kind of events you are interested in. One possibility is to consider only the number of customers, so that events will be of the form "More than 10 customers will visit the shop", " 3 customers will visit the shop"... \\
-	In the case the shop owner is also interested in the gender of the customers, you might wish to consider events that take into account the number of customers and their genders, such as "More than 3 male customers and less than 10 female customers will visit the shop", "2 male and 1 female will visit the shop". 
+There are no inherent restrictions on the events one can define and on which you could try to assign a probability. When doing a probabilistic study, however, you fix beforehand the events you want to consider, and this choice depends on what you are looking at. If we are interested in the result of a coin toss, we want to consider the event "The coin shows heads", but not the event "The coin shows heads and tomorrow it will rain in Rome". 
+
+\begin{example}[The shop]
+	\label{ex:shop}
+	You are paid by a shop owner to perform a statistical analysis of the customers visiting his shop. For time and economic constraints, you have to choose what kind of events you are interested in. One possibility is to consider only the number of customers, so that the events will be of the form "More than 10 customers will visit the shop", "3 customers will visit the shop", "Between 5 and 7 customers will visit the shop", ... 
+	If the shop owner is also interested in the gender of the customers, you can do a finer analysis and consider events that take into account both the number of customers and their gender, such as "More than 3 male customers and less than 10 female customers will visit the shop" or "2 male and 1 female customers will visit the shop". 
+%Note that every event of the first kind is also an event of the second kind: "3 customers will visit the shop" is the same event as "3 customers will visit the shop, of which either 0 male and 3 female, or 1 male and 2 female, or 2 male and 1 female, or 3 male and 0 female". The second choice is therefore finer than the first one, in the sense that it contains more events. We will come back to this in Section~\ref{ss:refinement}. 
 \end{example}
 
-From now on we assume that we have always set beforehand the events that we want to consider.  We assume that given two events $E$ and $F$ that we want to consider, then any of the events that can be built from them is an event that we want to consider
+The events we want to consider are called \emph{measurable events}, since they are the ones that our observation is able to decide (in Example~\ref{ex:shop}, by counting the customers) and, as we will see, the ones to which we assign a probability. Their set will be denoted by $\mathfrak F$. 
+
+The choice of $\mathfrak F$ is free, up to one requirement: if we want to consider $E$ and $F$, we also have to consider $E \wedge F$, $E \vee F$ and $\neg E$. One of the reasons for this is that whatever we are looking at in order to decide whether $E$ and $F$ are true decides also whether $E \wedge F$, $E \vee F$ and $\neg E$ are true. In Example~\ref{ex:shop}, if by counting the customers we can decide $E$ = "More than 10 customers will visit the shop" and $F$ = "Less than 20 customers will visit the shop", by counting the customers we can also decide $E \wedge F$ = "Between 11 and 19 customers will visit the shop" and $\neg E$ = "At most 10 customers will visit the shop". 
+
+We observe that when we will be introducing a probability in Section~\ref{s:probability}, we need to introduce it in such a way that the probabilities of $E \wedge F$, $E \vee F$ and $\neg E$ are tied to the ones of $E$ and $F$. For instance, the probability of $\neg E$ is one minus the probability of $E$: assigning a probability to $E$ means assigning a probability to $\neg E$ as well, whether we want it or not. Finally, we ask that the certain event belongs to $\mathfrak F$: it is decided by any observation whatsoever, and it is the event to which we will give probability $1$ and with which all the other probabilities are compared. 
+
 \begin{definition}[Measurable events]
 	\label{d:measurable}
-	The set of \emph{events we want to consider} $\mathfrak F$ is a set of events that is closed under intersection: If $E, F  \in \mathfrak F$ then also $E\cap F \in \mathfrak F$ (if we want to consider $E$ and $F$ we also want to consider "$E$ and $F$"). 
+	The events we want to consider are called \emph{measurable events}. Their set $\mathfrak F$ is an \emph{algebra of events}, that is, 
+	\begin{enumerate}
+		\item the certain event $\Omega$ belongs to $\mathfrak F$;
+		\item if $E \in \mathfrak F$, then $\neg E \in \mathfrak F$;
+		\item if $E, F \in \mathfrak F$, then $E \wedge F \in \mathfrak F$ and $E \vee F \in \mathfrak F$.\sidenote{If we also ask that $E_1 \vee E_2 \vee E_3 \vee \ldots$ belongs to $\mathfrak F$ whenever $E_1, E_2, E_3, \ldots$ do, $\mathfrak F$ is called a $\sigma$-algebra of events. This is the notion used in measure theory.}
+	\end{enumerate}
 \end{definition}
 
-\begin{example}[Coin Toss]
+\begin{example}[The algebra of a single event]
 	\label{ex:cointoss}
-	If we toss a coin and we are interested only in the face shown by it, then the events that h we want to consider are those that can be written in terms of theface shown by the coin: consists on the events we can write using the   interested is 
+	Suppose that we want to consider only one event $E$. By Definition~\ref{d:measurable}, $\mathfrak F$ has to contain also $\neg E$, $\Omega$ and $\emptyset$, and 
 	\begin{equation}
-		\label{}
-			\begin{split}
-				\mathfrak F & = \left\{ \emptyset,\text{ "The coin gave heads"}, \text{"The coin gave tails"}, \right.\\
-					& \qquad \left.\text{"The coin gave either H or T" }\right\}.
-			\end{split}
+		\label{e:cointoss}
+		\mathfrak F = \{ \emptyset, E, \neg E, \Omega \}
 	\end{equation}
-
+	is an algebra of events: $E \wedge \neg E = \emptyset$, $E \vee \neg E = \Omega$, $\neg(\neg E) = E$, and "and", "or" and "not" of events of $\mathfrak F$ give again events of $\mathfrak F$, as you can check with the rules \eqref{e:rules}. It is the smallest algebra containing $E$. 
+	For instance, if we toss a coin and we are interested only in the face it shows, then $E$ = "The coin shows heads", $\neg E$ = "The coin shows tails", $\Omega$ = "The coin shows either heads or tails", and \eqref{e:cointoss} is the algebra of the coin toss. 
 \end{example}
+
+
+\begin{example}[The shop, continued]
+	\label{ex:shop_algebra}
+	In the first choice of Example~\ref{ex:shop}, the measurable events are all the statements about the number of customers, such as "More than 10 customers will visit the shop", "Between 5 and 7 customers will visit the shop" or "An even number of customers will visit the shop", and their set is an algebra of events: "and", "or" and "not" of statements about the number of customers are again statements about the number of customers. We denote this algebra by $\mathfrak F_1$. In the second choice, the measurable events are all the statements about the number of male customers and the number of female customers, and their set $\mathfrak F_2$ is again an algebra of events. 
+%Since a statement about the number of customers is also a statement about the numbers of male and female customers, every event of $\mathfrak F_1$ is an event of $\mathfrak F_2$. 
+\end{example}
+
+
+
+
+
+
+
+\subsection{Elementary events and sample space}
 
 Once the events we want to consider are fixed and collected in $\mathfrak F$ it is possible to define a particular kind of events, the \emph{elementary events} thanks to which we can model events using set theory. Informally, elementary events are the smallest among the events we want to consider, and can be regarded as the outcome of the "experiment" we are observing. It is indeed possible to define a notion of smallness using using the relation "implies" which we have denoted by $\subset$ is Section~\ref{ss:operations}. An event $E$ is "smaller" than $F$ if $E \subset F$, and the elementary events are simply the smallest events we want to consider.     
 \begin{definition}[Elementary Events]
@@ -178,7 +210,7 @@ You toss a coin 3 times. Describe the elementary events.\\
 \end{ExerciseList}
 
 
-\subsection{ Events as Subsets of the Sample Space}
+\subsection{Events as Subsets of the Sample Space}
 	\label{ss:subset}
 %The minimality of the elementary events implies that the following property holds. If $\omega \in \Omega$ and $E \in \mathfrak F$, then either $\omega \subset E$ or $\omega \cap E  =\emptyset$. 
 \begin{definition}[Elementary events favourable to an event]
