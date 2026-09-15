@@ -154,13 +154,13 @@ If you observe a chess match the events you want to consider are those that invo
       \Question "The result is a number strictly greater than 4"
       \Question "The result is seven"  
     
-% 	\Answer 
-%	
-%	\Question It is already an elementary event 
-%	\Question "The result is a number less or equal than 2"= "The result is 1" or "The result is 2". 
-%	\Question "The result is a number strictly greater than 4" = "The result is 5" or "The result is 6 ". 
-%	\Question The event is the impossible event, also denoted by $\emptyset $. 
-%
+ 	\Answer 
+	
+	\Question It is already an elementary event 
+	\Question "The result is a number less or equal than 2"= "The result is 1" or "The result is 2". 
+	\Question "The result is a number strictly greater than 4" = "The result is 5" or "The result is 6 ". 
+	\Question The event is the impossible event, also denoted by $\emptyset $. 
+
 	\Exercise  A coin is tossed twice. We are interested in the face which the coin shows when it lands: heads or tails. The set of elementary events is $\{ HH, HT,TH,TT\}$, where the event HH corresponds to "the first toss gave heads, the second heads", the event HT corresponds... Write the elementary events that imply the events
    
          \Question "We obtained two heads".
@@ -168,12 +168,12 @@ If you observe a chess match the events you want to consider are those that invo
          \Question "We obtained 1 tails "
          \Question "At least one toss gave tails"
         
-%    	\Answer 
-%
-%	\Question $ HH$.
-%	\Question $ TH, TT$.
-%	\Question $TH, HT$.
-%	\Question $HT, TH, TT$.
+    	\Answer 
+
+	\Question $ HH$.
+	\Question $ TH, TT$.
+	\Question $TH, HT$.
+	\Question $HT, TH, TT$.
 	
     \Exercise A coin is tossed 4 times. We are interested in the face that it shows when it lands: heads or tails. How many elementary events are there? which elementary events are contained in the events 
     
@@ -183,29 +183,29 @@ If you observe a chess match the events you want to consider are those that invo
       \Question The first result was heads and the second tails 
       \Question All the 4 tosses gave the same result
     
-%	\Answer  The elementary events are HHHH, HHHT,HHTH,....,TTTT. There are $2^4=16$ of them.
-%
-%	\Question HHHH, HHHT,....,HTTT 
-%	\Question HTHH,HTHT,HTTH,...,TTTT
-%	\Question HTHH, HTHT,HTTH,HTTT
-%	\Question  HHHH, TTTT
-%
+	\Answer  The elementary events are HHHH, HHHT,HHTH,....,TTTT. There are $2^4=16$ of them.
+
+	\Question HHHH, HHHT,....,HTTT 
+	\Question HTHH,HTHT,HTTH,...,TTTT
+	\Question HTHH, HTHT,HTTH,HTTT
+	\Question  HHHH, TTTT
+
 	\Exercise (\cite{Ross} Chapter 2 Exercise 1)
 	\label{exercise:marbles}
   A box contains 3 marbles: 1 red, 1 green, 1 blue. Consider the experiment that consists in taking 1 marble from the box and then replacing it in the box and then drawing a second marble. Describe the sample space.\\
  	
-%	\Answer The sample space can be thought as the set of the outcomes of the experiment. In this case the possible outcomes are "The first marble is red and the second marble is red", "The first marble is red and the second is green",... A more efficient way to write an outcome is to write an array with two entries, i.e, (r,g), where the first entry represents the colour of the firs marble, and the second entry represents the colour of the second marble. That is, we write the elementary event "The first marble is red and the second is blue" by (r,b). The sample space becomes 
-% \bel{ex1}{\Omega=\{(r,r), (r,g),(r,b),(g,r), (g,g),(g,b),(b,r),(b,g),(b,b)\}}
+	\Answer The sample space can be thought as the set of the outcomes of the experiment. In this case the possible outcomes are "The first marble is red and the second marble is red", "The first marble is red and the second is green",... A more efficient way to write an outcome is to write an array with two entries, i.e, (r,g), where the first entry represents the colour of the firs marble, and the second entry represents the colour of the second marble. That is, we write the elementary event "The first marble is red and the second is blue" by (r,b). The sample space becomes 
+ \bel{ex1}{\Omega=\{(r,r), (r,g),(r,b),(g,r), (g,g),(g,b),(b,r),(b,g),(b,b)\}}
  
  	\Exercise
  Repeat Exercise 1 when the second marble is drawn without replacing the first marble.\\
  	
-%	\Answer The outcomes (r,r), (g,g) and (b,b) are no longer possible. The sample space is 
-% \bel{ex2}{\Omega=\{(r,g),(r,b),(g,r),(g,b),(b,r),(b,g)\}}
+	\Answer The outcomes (r,r), (g,g) and (b,b) are no longer possible. The sample space is 
+ \bel{ex2}{\Omega=\{(r,g),(r,b),(g,r),(g,b),(b,r),(b,g)\}}
      
 	\Exercise
 You toss a coin 3 times. Describe the elementary events.\\
-%	\Answer $\Omega=\{(H,H,H), (H,H,T),....,(T,T,T)\},$ where the event (H,T,H) is "The result of the first toss was head, the result of the second...". 
+	\Answer $\Omega=\{(H,H,H), (H,H,T),....,(T,T,T)\},$ where the event (H,T,H) is "The result of the first toss was head, the result of the second...". 
 
 \end{ExerciseList}
 

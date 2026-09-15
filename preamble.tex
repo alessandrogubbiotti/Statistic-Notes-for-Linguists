@@ -332,9 +332,17 @@
 \usepackage[notcite,notref]{showkeys}
 \usepackage[backend = biber, style = numeric]{biblatex}
 \usepackage{enumitem}
-\usepackage[printsolution=true]{exercises}
-\usepackage{exercise}
 
+\newif\ifsolutions
+\solutionstrue          % comment this line out to hide the solutions
+
+\ifsolutions
+  \usepackage{exercise}   % or just \usepackage{exercise} for answers in place
+\else
+  \usepackage[noanswer]{exercise}
+\fi
+
+\numberwithin{Exercise}{section}
 
 %\usepackage[
 %  pdfpagemode={UseOutlines}, % show bookmarks panel when opening
