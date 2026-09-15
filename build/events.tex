@@ -340,9 +340,10 @@ If we are observing a finite amount of coin tosses, but we do not know how many 
 	where $\Omega_i$ has been defined \ref{e:ntoss}. 
 
 \end{model}
-
+\begin{remark}
+	\label{r:uncountable}
 The above examples had the important property that their elements could be written as a list $\Omega = \{\omega_1, \ldots, \omega_n\}$ for some $n \in \mathbb N$, in the finite case, or $\Omega = \{\omega_1, \ldots, \omega_n, \ldots\}$ in the infinite case. In other words, we have decided a rule to count its elements, and, we have managed to come across all the elements of $\Omega$ with this rule. This is no longer possible in the next examples (try yourself to enumerate the elements of $\Omega$). In mathematical terms, in the next two examples $\Omega$ is uncountably infinite.
- 
+\end{remark}
 
 \begin{model}[Infinite Coin Tosses]
 	\label{ex:infinite_coin}
@@ -367,7 +368,7 @@ If we are observing an infinite amount of coin tosses, then the sample space is 
 \hlkwd{runif}\hldef{(}\hlnum{1}\hldef{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.5413302
+## [1] 0.8192029
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -438,7 +439,7 @@ $$
 In the same way, the event that Barbara wins corresponds is 
 $$B=\{01,00001,00000001,...\}$$
 where the digit appears in the after $3\times k+1$ zeros, for some $k\in\mathbb{N}$.
- $(A\cup B)^c=\Omega\setminus(A\cup B)=\{001,000001,...\}\cup\{0000...\}$.
+$(A\cup B)^c=\Omega\setminus(A\cup B)=\{001,000001,...\}\cup\{0000...\}$.
 The event $(A\cup B)^c$ is the event "Carlo wins or the game doesn't end"  
 
 \end{ExerciseList}
