@@ -110,6 +110,8 @@ For instance, if $\mathfrak F$ consists of all the statements about the result o
 	\Exercise Show that two different elementary events are mutually exclusive, that is, that if $E$ and $F$ are elementary and $E \neq F$, then $E \wedge F = \emptyset$. 
 	\Answer By Definition~\ref{d:measurable}, $E \wedge F \in \mathfrak F$. Since $E \wedge F \rightarrow E$ and $E$ is elementary, either $E \wedge F = \emptyset$ or $E \wedge F = E$. In the second case $E \rightarrow F$ and, since $F$ is elementary and $E \neq \emptyset$, $E = F$, which is excluded. Hence $E \wedge F = \emptyset$. 
 	\Exercise In the algebra $\mathfrak F_1$ of Example~\ref{ex:shop_algebra}, which of the following events are elementary? "No customer will visit the shop", "At most one customer will visit the shop", "Exactly 3 customers will visit the shop". 
+	\Answer "No customer will visit the shop" is $E_0$ and "Exactly 3 customers will visit the shop" is $E_3$, and both are elementary: a statement about the number of customers that implies them is either the same statement or impossible. "At most one customer will visit the shop" is $E_0 \vee E_1$, and it is not elementary, since $E_0$ implies it and $E_0$ is neither impossible nor equal to it.
+
 \end{ExerciseList}
 
 The notion of elementary event is fundamental since it allows to encode the events of $\mathfrak F$ as sets, see Section~\ref{ss:subset}. 
@@ -121,7 +123,7 @@ Elements of the sample space, that is, elementary events, are usually denoted by
 
 \begin{example}[Sample space of a coin toss]
 	\label{ex:coin_sample}
-	If $\mathfrak F$ is the algebra of the coin toss \eqref{e:cointoss}, the elementary events are $\omega_1 = E$ = "The coin shows heads" and $\omega_2 = \neg E$ = "The coin shows tails", and the sample space is $\Omega = \{\omega_1, \omega_2\}$. Note that we can use a different notation and set $1 = \omega_1$ and $0 = \omega_2$. However, $0$ and $1$ must not be mistaken for numbers: they are symbols indicating elementary events.\sidenote{Despite that almost every textbook in probability starts by providing the sample space, the sample space in probability is only used as a mean of ground events to a standard object, see Subsection~\ref{ss:subet}} 
+	If $\mathfrak F$ is the algebra of the coin toss \eqref{e:cointoss}, the elementary events are $\omega_1 = E$ = "The coin shows heads" and $\omega_2 = \neg E$ = "The coin shows tails", and the sample space is $\Omega = \{\omega_1, \omega_2\}$. Note that we can use a different notation and set $1 = \omega_1$ and $0 = \omega_2$. However, $0$ and $1$ must not be mistaken for numbers: they are symbols indicating elementary events.\sidenote{Despite that almost every textbook in probability starts by providing the sample space, the sample space in probability is only used as a mean of ground events to a standard object, see Subsection~\ref{ss:subset}} 
 \end{example}
 
 \begin{example}[A die is rolled]
@@ -154,8 +156,12 @@ Elements of the sample space, that is, elementary events, are usually denoted by
       \Question "The result is a number strictly greater than 4"
       \Question "The result is seven"  
     
- 	\Answer 
-	
+ 	\Answer
+	\Question Only "The result is 6" itself. 
+	\Question "The result is 1" and "The result is 2", since "The result is a number less than or equal to 2" = "The result is 1" $\vee$ "The result is 2". 
+	\Question "The result is 2", "The result is 4" and "The result is 6". 
+	\Question "The result is 5" and "The result is 6". 
+	\Question None. The event is impossible, that is, it is $\emptyset$, and elementary events are not impossible.	
 	\Question It is already an elementary event 
 	\Question "The result is a number less or equal than 2"= "The result is 1" or "The result is 2". 
 	\Question "The result is a number strictly greater than 4" = "The result is 5" or "The result is 6 ". 
@@ -168,14 +174,14 @@ Elements of the sample space, that is, elementary events, are usually denoted by
          \Question "We obtained 1 tails "
          \Question "At least one toss gave tails"
         
-    	\Answer 
 
-	\Question $ HH$.
-	\Question $ TH, TT$.
-	\Question $TH, HT$.
-	\Question $HT, TH, TT$.
-	
-    \Exercise A coin is tossed 4 times. We are interested in the face that it shows when it lands: heads or tails. How many elementary events are there? which elementary events are contained in the events 
+	\Answer 
+	\Question $HH$. 
+	\Question $HH$ and $HT$. 
+	\Question $HT$ and $TH$. 
+	\Question $HT$, $TH$ and $TT$.
+    	
+	\Exercise A coin is tossed 4 times. We are interested in the face that it shows when it lands: heads or tails. How many elementary events are there? which elementary events are contained in the events 
     
     
       \Question The first result was heads
@@ -183,30 +189,30 @@ Elements of the sample space, that is, elementary events, are usually denoted by
       \Question The first result was heads and the second tails 
       \Question All the 4 tosses gave the same result
     
-	\Answer  The elementary events are HHHH, HHHT,HHTH,....,TTTT. There are $2^4=16$ of them.
+	\Answer The elementary events are the strings of four letters $H$ or $T$, $HHHH, HHHT, HHTH, \ldots, TTTT$, and there are $2^4 = 16$ of them. 
+	\Question The eight strings starting with $H$: $HHHH$, $HHHT$, $HHTH$, $HHTT$, $HTHH$, $HTHT$, $HTTH$, $HTTT$. 
+	\Question The eight strings with $T$ in the second position: $HTHH$, $HTHT$, $HTTH$, $HTTT$, $TTHH$, $TTHT$, $TTTH$, $TTTT$. 
+	\Question The four strings starting with $HT$: $HTHH$, $HTHT$, $HTTH$, $HTTT$. 
+	\Question $HHHH$ and $TTTT$.	
+	
 
-	\Question HHHH, HHHT,....,HTTT 
-	\Question HTHH,HTHT,HTTH,...,TTTT
-	\Question HTHH, HTHT,HTTH,HTTT
-	\Question  HHHH, TTTT
-
-	\Exercise (\cite{Ross} Chapter 2 Exercise 1)
+\Exercise (\cite{Ross} Chapter 2 Exercise 1)
 	\label{exercise:marbles}
   A box contains 3 marbles: 1 red, 1 green, 1 blue. Consider the experiment that consists in taking 1 marble from the box and then replacing it in the box and then drawing a second marble. Describe the sample space.\\
  	
-	\Answer The sample space can be thought as the set of the outcomes of the experiment. In this case the possible outcomes are "The first marble is red and the second marble is red", "The first marble is red and the second is green",... A more efficient way to write an outcome is to write an array with two entries, i.e, (r,g), where the first entry represents the colour of the firs marble, and the second entry represents the colour of the second marble. That is, we write the elementary event "The first marble is red and the second is blue" by (r,b). The sample space becomes 
- \bel{ex1}{\Omega=\{(r,r), (r,g),(r,b),(g,r), (g,g),(g,b),(b,r),(b,g),(b,b)\}}
- 
- 	\Exercise
- Repeat Exercise 1 when the second marble is drawn without replacing the first marble.\\
+	\Answer The sample space is the set of the outcomes of the experiment, "The first marble is red and the second is red", "The first marble is red and the second is green", and so on. A shorter way to write an outcome is a pair $(r,g)$, where the first entry is the colour of the first marble and the second entry the colour of the second one. The sample space is then 
+	\bel{e:marbles}{\Omega = \{(r,r), (r,g), (r,b), (g,r), (g,g), (g,b), (b,r), (b,g), (b,b)\}.}
  	
-	\Answer The outcomes (r,r), (g,g) and (b,b) are no longer possible. The sample space is 
- \bel{ex2}{\Omega=\{(r,g),(r,b),(g,r),(g,b),(b,r),(b,g)\}}
-     
+	\Exercise
+ Repeat Exercise~\ref{exercise:marbles}, when the second marble is drawn without replacing the first marble.\\
+
+     	\Answer The outcomes $(r,r)$, $(g,g)$ and $(b,b)$ are no longer possible, and the sample space is 
+	\bel{e:marbles2}{\Omega = \{(r,g), (r,b), (g,r), (g,b), (b,r), (b,g)\}.}
+	
 	\Exercise
 You toss a coin 3 times. Describe the elementary events.\\
-	\Answer $\Omega=\{(H,H,H), (H,H,T),....,(T,T,T)\},$ where the event (H,T,H) is "The result of the first toss was head, the result of the second...". 
-
+	
+	\Answer $\Omega = \{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}$, where, for instance, $HTH$ is the event "The first toss gave heads, the second tails and the third heads".
 \end{ExerciseList}
 
 
@@ -275,104 +281,110 @@ From now on we will consider $\mathfrak F$ as a set of subsets of $\Omega$, that
 	\Question  Two and no more occur 
 	\Question  None occurs. 
 	\Question  Not more than two occur.
-	
-	\Answer
 
-	\Question	$A\setminus (B\cup C)=A\cap B^c \cap C^c$.
-	\Question	$ (A\cap B)\setminus C = A\cap B \cap C^c$.
-	\Question	$ A\cap B \cap C$.
-	\Question	$ A\cup B \cup C$.
-	\Question	\label{ex:set1} At least two occur if occur one bertween $A\cap B$, $A\cap C$ or $B\cap C$. Thus $ (A \cap B)\cup (A\cap C) \cup ( B \cap C)$. 
-        \Question        It has to happen one between $A$ $B$ and $C$, that is, it has to happen $A\cup B \cup C$, but it does not have to happen two of them, that is, it cannot happen the event described in \ref{ex:set1}: 
-	\Question	  $ (A \cap B)\cup (A\cap C) \cup ( B \cap C)$. Thus the event is $A\cup B \cup C \setminus ((A \cap B)\cup (A\cap C) \cup ( B \cap C))$.
-	\Question	$ \left((A \cap B) \cup (A \cap C) \cup (B \cap C) \right)\setminus A \cap B \cap C $ which is the same as  $ \left((A \cap B) \cup (A \cap C) \cup (B \cap C) \right) \cap (A^c \cup B^c \cup  C^c) $ .
-	\Question	$(A\cup B \cup C)^c= A^c\cap B^c \cap C^c$. 
-	\Question	This event happens when the event all three events occur does not happen. Thus the event is $(A \cap B \cap C)^c =A^c \cup B^c \cup C^c. $
+
+	\Answer 
+	\Question $A \cap B^c \cap C^c$. 
+	\Question $A \cap B \cap C^c$. 
+	\Question $A \cap B \cap C$. 
+	\Question $A \cup B \cup C$. 
+	\Question At least two occur if one between $A \cap B$, $A \cap C$ and $B \cap C$ occurs, that is, $D = (A \cap B) \cup (A \cap C) \cup (B \cap C)$. 
+	\Question One of the three occurs, that is, $A \cup B \cup C$ occurs, and two of them do not occur, that is, $D$ does not occur: $(A \cup B \cup C) \cap D^c$. 
+	\Question Two of them occur, that is, $D$ occurs, and all three do not: $D \cap (A \cap B \cap C)^c = D \cap (A^c \cup B^c \cup C^c)$. 
+	\Question $(A \cup B \cup C)^c = A^c \cap B^c \cap C^c$. 
+	\Question This is the event "all three occur" not occurring: $(A \cap B \cap C)^c = A^c \cup B^c \cup C^c$.
 
 \end{ExerciseList}
 
 \subsection{Relevant Examples}
+\label{ss:models}
 
-In this examples we provide the basic examples of sample spaces to which we will come back throughout the notes: the \emph{Bernoulli trial} space and the sample space of a random number. 
+In this section we collect the basic sample spaces to which we will come back throughout the notes: the sample space of the \emph{Bernoulli trials} and the one of a random number. 
 
-\begin{model}[A Coin Toss]
-If in a coin toss we are interested only in the face the coin shows, as we always are when we speak about coin tosses, then the only two non-tricial events we want to consider are  0=" The result is tails" and 1 = " The result is heads", see also Example~\ref{ex:cointoss} and \ref{ex:die_subset}. Therefore 
+\begin{model}[A coin toss]
+	\label{ex:one_coin}
+	If in a coin toss we are interested only in the face the coin shows, as we always are when we speak about coin tosses, then the only two non-trivial events we want to consider are $0$ = "The result is tails" and $1$ = "The result is heads", see Examples~\ref{ex:cointoss} and \ref{ex:coin_sample}. Therefore 
 	\begin{equation}
-		\Omega_1=\{0,1\},
+		\Omega_1 = \{0,1\}, 
 	\end{equation}
-	and we will ofter refer to $1$ as to a success. The set of events that we want to consider can be represented by 
+	and we will often refer to $1$ as a success. The set of events we want to consider is 
 	\begin{equation}
-		\mathfrak F = \{\emptyset, \{0\}, \{1\},\{0,1\}\}.
+		\mathfrak F = \{\emptyset, \{0\}, \{1\}, \{0,1\}\}. 
 	\end{equation}
 \end{model}
 
-\begin{model}[two, three and $n$ coin tosses]
+\begin{model}[Two, three and $n$ coin tosses]
 	\label{ex:n_coin}
-The sample space of two coin tosses can be encoded by $\Omega_2=\{00,01,10,11\}= \{x_1x_2\,,\, x_i\in\{0,1\} i=1,2\}$, where, for example, 
-If we toss twice a coin and we are only interested in the faces they show, then we are interested in events of the form " The first coin shows heads" or "The second coin shows tails". The smallest events we can make by intersecting this kind of events are of the form 01="The first toss gave tails and the second tails". Therefore the sample space is constituted by the set 
+	If we toss a coin twice and we are only interested in the faces it shows, the events we want to consider are of the form "The first toss gave heads" or "The second toss gave tails", and the elementary events are of the form "The first toss gave tails and the second heads", which we encode in the two-digit string $01$. Therefore the sample space is 
 	\bel{}{
-		\Omega_2 = \{00,01,10,11\} = \{x_1x_2, x_i \in \{0,1\}, \text{ for $i = 1, 2$}  \} 
-	} 
-	of two digit string where every digit represents the outcome of the respective coin. 
-	Similarly, for 3 coin tosses 
-	\bel{}{\Omega_3=\{000,001,010,011,100,101,110,111\}=\{x_1x_2x_3\,,\,x_i\in\{0,1\} i=1,2,3\},} 
-	 and, in the general case of $n$ coin tosses, the sample space is the space of strings of $n$ digit with values in $\{0,1\}$, namely 
+		\Omega_2 = \{00, 01, 10, 11\} = \{x_1 x_2 \,, x_i \in \{0,1\} \text{ for $i = 1, 2$}\}, 
+	}
+	the set of the two-digit strings where every digit represents the outcome of the corresponding toss. Similarly, for three coin tosses 
+	\bel{}{
+		\Omega_3 = \{000, 001, 010, 011, 100, 101, 110, 111\} = \{x_1 x_2 x_3 \,, x_i \in \{0,1\} \text{ for $i = 1, 2, 3$}\}, 
+	}
+	and, in the general case of $n$ coin tosses, the sample space is the set of the strings of $n$ digits with values in $\{0,1\}$, 
 	\begin{equation}
 		\label{e:ntoss}
-		\Omega_n = \{x_1x_2\ldots x_n\, , x_i \in \{0,1\} , i = 1,\ldots, n\}. 
+		\Omega_n = \{x_1 x_2 \ldots x_n \,, x_i \in \{0,1\} \text{ for $i = 1, \ldots, n$}\}. 
 	\end{equation}
-	Events that we will often use when introducing the Binomial distribution, see Example~\ref{????} are the events $E_k$= "There has been exactly $k$ successes", for $k \in \mathbb N$, $k < n$. For instance, if $n = 3$ and $k = 1$, is $E_1=\{001,010,100\}=\{x_1x_2x_3\,,\,x_1+x_2+x_3=1\}$. The particular encoding given by \eqref{e:ntoss} allows us to write in simple terms the condition imposed by $E_k$:
+	Events that we will often use, when introducing the binomial distribution, are $E_k$ = "There have been exactly $k$ successes", for $k = 0, 1, \ldots, n$. For instance, if $n = 3$ and $k = 1$, then $E_1 = \{001, 010, 100\} = \{x_1 x_2 x_3 \,, x_1 + x_2 + x_3 = 1\}$. The encoding \eqref{e:ntoss} allows us to write the condition imposed by $E_k$ in simple terms: 
 	\begin{equation}
-	\label{e:ntoss_ksuccesses}
-		E_k = \{ x_1\ldots x_n \in \Omega_n \,, x_1 + \ldots + x_n = k \}.
+		\label{e:ntoss_ksuccesses}
+		E_k = \{x_1 \ldots x_n \in \Omega_n \,, x_1 + \ldots + x_n = k\}. 
 	\end{equation}
 \end{model}
 
-\begin{model}[Finite but Undetermined Amount of Coin Tosses]
-If we are observing a finite amount of coin tosses, but we do not know how many of them there will be, we can define the set of possible outcomes, that is, the sample space, via the following encoding  
-\begin{equation}
-    \label{e:finite_coin}
-	\begin{split}
-	\Omega= & \bigcup_{i=1}^\infty \Omega_i = \{0,1,00,01,10,11,000, \ldots \},\\
-		& = \left\{ x_1\ldots x_n , n \in \mathbb N, x_i \in \{0,1\}, \text{ for $i = 1,\ldots n$}\right\}
-	\end{split}
-\end{equation}
-	where $\Omega_i$ has been defined \ref{e:ntoss}. 
-
+\begin{model}[A finite but undetermined number of coin tosses]
+	\label{ex:finite_coin}
+	If we observe a finite number of coin tosses, but we do not know in advance how many of them there will be, the elementary events are the strings of any length, 
+	\begin{equation}
+		\label{e:finite_coin}
+		\begin{split}
+			\Omega & = \Omega_1 \cup \Omega_2 \cup \Omega_3 \cup \ldots = \{0, 1, 00, 01, 10, 11, 000, \ldots\} \\
+			& = \{x_1 \ldots x_n \,, n \in \mathbb N, x_i \in \{0,1\} \text{ for $i = 1, \ldots, n$}\}, 
+		\end{split}
+	\end{equation}
+	where $\Omega_n$ has been defined in \eqref{e:ntoss}. 
 \end{model}
+
 \begin{remark}
 	\label{r:uncountable}
-The above examples had the important property that their elements could be written as a list $\Omega = \{\omega_1, \ldots, \omega_n\}$ for some $n \in \mathbb N$, in the finite case, or $\Omega = \{\omega_1, \ldots, \omega_n, \ldots\}$ in the infinite case. In other words, we have decided a rule to count its elements, and, we have managed to come across all the elements of $\Omega$ with this rule. This is no longer possible in the next examples (try yourself to enumerate the elements of $\Omega$). In mathematical terms, in the next two examples $\Omega$ is uncountably infinite.
+	The sample spaces above have the important property that their elements can be written as a list, $\Omega = \{\omega_1, \ldots, \omega_n\}$ for some $n \in \mathbb N$ in the finite case, or $\Omega = \{\omega_1, \omega_2, \ldots\}$ in the infinite case. In other words, we have found a rule to enumerate the elements of $\Omega$, and every element of $\Omega$ is reached by this rule. This is no longer possible in the next two models (try yourself to enumerate the elements of $\Omega$). In mathematical terms, in the next two models $\Omega$ is uncountably infinite.\sidenote{For mathematcal reasons, the algebra of event $\mathfrak F$ most of the times does not contain every subset of $\Omega$} 
 \end{remark}
 
-\begin{model}[Infinite Coin Tosses]
+\begin{model}[Infinite coin tosses]
 	\label{ex:infinite_coin}
-If we are observing an infinite amount of coin tosses, then the sample space is the set of strings whose digits denote the result of the corresponding coin. 
+	If we observe an infinite sequence of coin tosses, the events we want to consider are the statements that involve finitely many tosses, such as 
+	\begin{equation}
+		\label{e:cylinder}
+		A_{a_1 \ldots a_n} = \text{"The first toss gave $a_1$, the second $a_2$, \ldots, the $n$-th $a_n$"}, 
+	\end{equation}
+	where $n \in \mathbb N$ and $a_i \in \{0,1\}$ for $i = 1, \ldots, n$, together with their "and", "or" and "not". The sample space is the space of infinite strings 
 	\begin{equation}
 		\label{e:infinite_coin}
- \Omega=\{x_1...x_n...\, ,\, x_i\in\{0,1\}\}.
+		\Omega = \{x_1 x_2 \ldots x_n \ldots \,, x_i \in \{0,1\}\}, 
 	\end{equation}
-	 Possible events that we would like to take into account are of the form "The first toss gave $a_1$, the second $a_2$,..., the nth $a_n$", where $n \in \mathbb N$ and $a_{i} \in \{0,1\}$ for $i = 1, \ldots, n$. This event correspods to the subset of $\Omega$ consisting on strings whose first $n$ elements are $a_i$, for $i = 1,\ldots, n$
-		\begin{equation}
-			\label{e:infinite_coin_set}
-			A_{a_1,\ldots, a_n} = \{x_1\ldots x_n\ldots \in \Omega\,\, x_1 = a_1, \ldots, x_n = a_n \}.
-		\end{equation}
+	and we identify the event \eqref{e:cylinder} with the set of the strings whose first $n$ digits are $a_1, \ldots, a_n$, 
+	\begin{equation}
+		\label{e:infinite_coin_set}
+		A_{a_1 \ldots a_n} = \{x_1 x_2 \ldots \in \Omega \,, x_1 = a_1, \ldots, x_n = a_n\}. 
+	\end{equation}
+	\sidenote{To see the elements of $\Omega$ as elementary events, one should require that $\mathfrak F$ is cloed under infinitely many  "and" operations on events, since $\{x_1 x_2 \ldots\} = A_{x_1} \wedge A_{x_1 x_2} \wedge A_{x_1 x_2 x_3} \wedge \ldots$, that is, if $\mathfrak F$ is a $\sigma$-algebra.} 
 \end{model}
 
-\begin{model}[ Random Number Between 0 and 1]
+\begin{model}[A random number between 0 and 1]
 	\label{ex:unif}
-	By typing on R the command runif, the computer gives us a number $X$ between 0 and 1. 
+	By typing on R the command \texttt{runif}, the computer gives us a number $X$.  
 <<>>=
 runif(1) 
 @
-	Some events in which we are usually interested are " $X < 1/2$ ", " $X \in [1/4, 1/ 2) $". By intesecating the above events we can see, at least intuitively, that the smallest events one can make are $X = x$. The sample space is therefore composed by the events "$ X = a $" for each $a \in [0,1]$, and, by denoting $a$ the event $ X = a$, 
+	The events we are interested in are of the form "$X < 1/2$" or "$X \in [1/4, 5)$", that is, "$X \in I$" for an interval $I\subset \mathbb R$, together with their "and", "or" and "not". As in Model~\ref{ex:infinite_coin}. The number prin 
 	\bel{e:unif_1}{
-		\Omega = \{\text{" $X = a$"}, a \in [0,1]\} = [0,1].
-	} 
-The set of events we want to consider $\mathfrak F$ contains the events of the form $ X \in [a,b]$, where $0 \leq a <  b \leq 1 $, if we are using the notation in the centre of \eqref{e:unif_1}, and $[a,b]$ if we are using the other notation for $\Omega$.    
+		\Omega = [0,1] 
+	}
+	as the set of the outcomes, and to identify the event "$X \in I$" with the interval $I$. We wi
 \end{model}
-
-	Example~\ref{ex:infinite_coin} and ~\ref{ex:unif} constitute are different from the previous ones. In both cases the spaces are too big to be written as a list of elements, that is, in the form $\Omega = \{ \omega_1 , \omega_2, \ldots \}$. In jargon, $\Omega$ is not discrete. The difficulty is that now the specification of $\mathfrak F$ becomes important since, for good  mathematical reasons, it is in general not possible to consider each $A \subset \Omega$.
 
 
 \subsection{Exercises}
@@ -382,11 +394,12 @@ The set of events we want to consider $\mathfrak F$ contains the events of the f
 	\Exercise
 	\label{exercise:game_2}
     (\cite{Ross} Chapter 2 Exercise 2) In an experiment, die is rolled continually until a 6 appears, at which point the experiment stops. What is the sample space of this experiment? Let $E_n$ denote the event " The experiment is completed before n rolls". Write it as a subset of the sample space. Describe $\left(\bigcup_{i=1}^\infty E_i\right)^c$.
-
-\Answer The sample space is the space of outputs of the experiment. We encode the event "The first roll gave 4, the second 2, the third 6 and then stops" in the string 426. That is, we encode the output of the experiment in strings of digits 1,2...,5,6,  where the digit correspond to the result of the die, and the position of the digit corresponds to when has the digit appeared. The string must stop at after the first 6, since the game stops when the die gives 6. \\We have to keep in mind that we can observe events in which we never stop rolling the die, which correspond to infinite strings of 1,2...5, for example 1212121.... or  121233...34453236.... 
-\bel{}{\Omega=\{ 6, 16, 26, 36, 46, 56,116,...\}\cup\{x_1x_2....x_n...\,: x_{i}\in\{1,2,3,4,5\} \}=E\cup G.}
-The set $E$ is the event that the game stops in a finite number of rolls. The set $G$ is the event that the game goes on without ending. For any reasonable probability, the event G has probability 0, and it is usually neglected. 
-The events $E_i$ can be written as subsets of the state space in the following way: $E_1=\{6\}$, $E_2=\{6,16,26...,56\}$, $E_3=E_2 \cup \{116,126,...,556\}$,... (In a more compact form $E_i=\{x_1...x_n6\,:\, x_i\in\{1,...,5\}\, n\leq i\}$).
+	\Answer We encode the outcome "The first roll gave 4, the second 2, the third 6, and then the experiment stopped" in the string $426$: a digit is the result of a roll, its position is the number of the roll, and the string stops after the first 6. We also have to allow for the die never showing a 6, which corresponds to the infinite strings of digits between 1 and 5, such as $121212\ldots$ Therefore 
+	\bel{}{\Omega = \{6, 16, 26, 36, 46, 56, 116, \ldots\} \cup \{x_1 x_2 \ldots x_n \ldots \,, x_i \in \{1,2,3,4,5\}\} = E \cup G.} 
+	The set $E$ is the event "The experiment stops after finitely many rolls" and $G$ is the event "The experiment never stops". As in Model~\ref{ex:infinite_coin}, the strings of $G$ are outcomes rather than events, since none of them can be decided with finitely many rolls; for any reasonable probability $G$ has probability $0$, but for other games one should take into account the event that the game never ends and make sure it has probability 0. 
+	The events $E_n$ are $E_1 = \{6\}$, $E_2 = \{6, 16, 26, \ldots, 56\}$, $E_3 = E_2 \cup \{116, 126, \ldots, 556\}$, and in general 
+	\bel{}{E_n = \{x_1 \ldots x_m 6 \,, x_j \in \{1, \ldots, 5\}, m \leq n - 1\},} 
+	the strings of length at most $n$. By definition of "or", $E_1 \cup E_2 \cup E_3 \cup \ldots$ is the event "$E_n$ occurs for at least one $n$", that is, "The experiment stops after finitely many rolls", which is $E$. Its complement is $G$.
 
 The event $$\bigcup_{i=1}^\infty E_n= E_0\cup E_1\cup E_2,....= "E_0\,\, or E_1 \,\,or ....E_n \,\,\,or ..."$$
 is, by definition of "or", the event that $E_n$ happens for at least one $n$. That is, is the event "The game ends before $n$ rolls at least one $n$ "="The game ends after $n$ rolls for some $n$", which coincides with $E$.
@@ -396,43 +409,44 @@ The set event $E^c$ corresponds to $G$.
 Two dice are thrown. Let $E$ be the event that the sum of the dice is odd, and $F$ the event that at least one of the two dice lands in $1$ and let $G$ be the event that the sum is 5. Describe the events $E\cap F $, $E\cup F$, $F\cap G$, $E\cap F^c=E\setminus F$ and $E \cap F\cap G$
 
 \Answer
- $$E=\{(1,2),(1,4),(1,6),(2,1),(2,3),(2,5),(3,2)...(6,5)\}$$
- $$F=\{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1)...(6,1)\} $$
- $$
- G=\{(1,4),(2,3),(3,2),(4,1)\}
- $$
- $$
- E\cup F=\{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),
- (2,1),(2,3),(2,5),(3,1),(3,2),(3,4)..(6,5)\}
- $$
- $$
-	E\cap F=\{(1,2),(1,4),(1,6),(2,1),(4,1),(6,1)\}$$
- $$
- F\cap G=\{(1,4),(4,1)\}
- $$
- $$
- E\cap F\cap G=F\cap G=\{(1,4),(4,1)\}
- $$
- $$
-E\cap F^c=\{((2,3),(2,5),(3,2),(3,4),(3,6),(4,3),...(6,5)\}
-$$
+ 
+	\Answer Writing $ij$ for "The first die shows $i$ and the second $j$", 
+	\bel{}{E = \{12, 14, 16, 21, 23, 25, 32, \ldots, 65\}, \qquad F = \{11, 12, 13, 14, 15, 16, 21, 31, 41, 51, 61\}, \qquad G = \{14, 23, 32, 41\}.} 
+	Then $E \cap F$ = "One die shows 1 and the other an even number" $= \{12, 14, 16, 21, 41, 61\}$; $E \cup F$ = "The sum is odd or a die shows 1" $= \{11, 12, 13, 14, 15, 16, 21, 23, 25, 31, 32, 34, \ldots, 65\}$; $F \cap G$ = "One die shows 1 and the other 4" $= \{14, 41\}$; $E \cap F^c$ = "The sum is odd and no die shows 1" $= \{23, 25, 32, 34, 36, 43, 45, 52, 54, 56, 63, 65\}$; finally $G \subset E$, since a sum equal to 5 is odd, so that $E \cap F \cap G = F \cap G = \{14, 41\}$.
 
+
+%$$E=\{(1,2),(1,4),(1,6),(2,1),(2,3),(2,5),(3,2)...(6,5)\}$$
+% $$F=\{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1)...(6,1)\} $$
+% $$
+% G=\{(1,4),(2,3),(3,2),(4,1)\}
+% $$
+% $$
+% E\cup F=\{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),
+% (2,1),(2,3),(2,5),(3,1),(3,2),(3,4)..(6,5)\}
+% $$
+% $$
+%	E\cap F=\{(1,2),(1,4),(1,6),(2,1),(4,1),(6,1)\}$$
+% $$
+% F\cap G=\{(1,4),(4,1)\}
+% $$
+% $$
+% E\cap F\cap G=F\cap G=\{(1,4),(4,1)\}
+% $$
+% $$
+%E\cap F^c=\{((2,3),(2,5),(3,2),(3,4),(3,6),(4,3),...(6,5)\}
+%$$
+%
 \Exercise 
 \label{e:game}(\cite{Ross} Chapter 2 Exercise 4)
 Anton, Barbara  and Carlo take turns flipping a coin. The first one to get head wins. The sample space to this experiment can be defined as $\Omega=\{1,01,001,0001,...\}\cup\{00000...\}$.
 \Question Interpret the sample space.
 \Question In terms of the sample space, write the following events: A="Anton wins", B="Barbara wins" and $(A\cap B)^c$.
 
-\Answer \Question 1="First toss is heads"(So that Anton wins)  01="The first toss is tails, the second heads "(So that Barbara wins)... The event 00000...="Head never arises, the game never stops". 
-
-	\Question As it is easy to seen, Anton wins whenever the digit 1 appears in the 1st, 4th, 7th.. position. This means that 
-$$
-A=\{1,0001,0000001,...\}.
-$$
-In the same way, the event that Barbara wins corresponds is 
-$$B=\{01,00001,00000001,...\}$$
-where the digit appears in the after $3\times k+1$ zeros, for some $k\in\mathbb{N}$.
-$(A\cup B)^c=\Omega\setminus(A\cup B)=\{001,000001,...\}\cup\{0000...\}$.
-The event $(A\cup B)^c$ is the event "Carlo wins or the game doesn't end"  
-
+	\Answer 
+	\Question $1$ = "The first toss gave heads", so that Anton wins; $01$ = "The first toss gave tails and the second heads", so that Barbara wins; $001$ is the event that Carlo wins at the third toss, and so on. The string $000\ldots$ is the event "Heads never appears", so that the game never ends. 
+	\Question Anton tosses at the first, fourth, seventh, \ldots turn, so he wins when the $1$ is in position $3k+1$ for some $k \in \mathbb N$: 
+	\bel{}{A = \{1, 0001, 0000001, \ldots\}.} 
+	In the same way, Barbara wins when the $1$ is in position $3k+2$: 
+	\bel{}{B = \{01, 00001, 00000001, \ldots\}.} 
+	Finally $(A \cup B)^c = \{001, 000001, \ldots\} \cup \{000\ldots\}$ is the event "Carlo wins or the game never ends".
 \end{ExerciseList}

@@ -7,6 +7,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\section{Probability}
+\label{s:probability}
+
+	\subsection{Introduction}
+
+	In this section we formally define what a probability is. As already said in the Introduction~\ref{s:intro}, a probability associates to each event $E \in \mathfrak F$, the set of events that we want to consider, its probability $\mathbb P(E)$. A probability is therefore a function 
+	\begin{equation}
+		\label{e:prob_def}
+		\begin{array}{ccc}
+			\mathbb P: \mathfrak F & \to & [0,1]\\
+			E & \mapsto & \mathbb P(E).
+		\end{array}
+	\end{equation}
+	Not every function from $\mathfrak F$ to $[0,1]$ has the right to be called a probability, and some relations must be satisfied. Consider the two events $E$ = "Tomorrow it will be cloudy" and $F$ = "Tomorrow it will rain" and their probabilities $\mathbb P(E)$ and $\mathbb P(F)$. If $F$ happens, also $E$ happens, that is, $F \subset E$, and the intuition tells us that the numbers $\mathbb P(E)$ and $\mathbb P(F)$ have to satisfy $\mathbb P(F) \leq \mathbb P(E)$. This monotonicity property, for instance, will be proved in Corollary~\ref{c:monotonicity} as a consequence of the properties we impose on probabilities, see Definition~\ref{d:prob}. 
+
+	The relations we require are two, see Definition~\ref{d:prob}: the certain event has probability $1$, and the probability of the "or" of two mutually exclusive events is the sum of their probabilities. Both make sense on any algebra of events, see Definition~\ref{d:measurable}, and they are weaker than the ones required in measure theory, where the second relation is asked for infinitely many events $E_1, E_2, E_3, \ldots$ at once, so that $\mathfrak F$ has to be a $\sigma$-algebra of events.\sidenote{The second relation is called \emph{additivity}, and its version for infinitely many events \emph{$\sigma$-additivity}. Requiring additivity alone is also the position of \cite{definetti}.} In these notes we mostly consider algebras $\mathfrak F$ whose sample space $\Omega$ is finite. In this case a probability is determined by the values $\mathbb P(\omega)$ it assigns to the elementary events $\omega \in \Omega$, see Theorem~\ref{t:finite}, and one can skip directly to Section~\ref{ss:finite}.\sidenote{When $\Omega$ is infinite, as in Example~\ref{ex:shop_sample}, the values $\mathbb P(\omega)$ determine $\mathbb P$ only if $\sigma$-additivity is assumed.}
+
+	For some of the sample spaces we are interested in, however, the difference between algebras and $\sigma$-algebras matters. In Exercise~\ref{exercise:game_2} the event $G$ = "The game never ends" is the "and" of the infinitely many events "The experiment is not completed before $n$ rolls", $n \in \mathbb N$, that is, $G = \bigcap_{n = 1}^\infty E_n^c$, and in Model~\ref{ex:unif} the event "$X = a$" is the "and" of the events "$X \in [a - \frac1n, a + \frac1n]$", $n \in \mathbb N$. An algebra of events containing the $E_n$ need not contain $G$, and computing the probability of $G$ from the probabilities of the $E_n$ requires $\sigma$-additivity. We will not treat these cases rigorously: we will only compute the probabilities of some particular events of Model~\ref{ex:infinite_coin}, when dealing with Bernoulli trials, see Definition~\ref{d:Bernoulli_measure}, and of Model~\ref{ex:unif}, when dealing with continuous random variables, see Definition~\ref{d:continuous}.
+
+
   	\subsection{Introduction}
 
     In this section we are going to formally define what is a probability. As already said in the Introduction~\ref{s:intro}, a probability associates to each  $E \in \mathfrak F$, the set of events that we want to consider, its probability, $\mathbb P(E)$. A probability is therefore a function 
