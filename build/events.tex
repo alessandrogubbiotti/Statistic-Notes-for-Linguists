@@ -15,9 +15,8 @@ In light of the subjective perspective on Probability Theory we will refer to th
     An event is an unambiguous statement which can be either true or false and about which you are uncertain.
 \end{definition}
 Informally, unambiguous statement means that a possible bet or insurance based upon it can be decided without question. 
-Examples of events are: " The next ChatGPT sentence will be incorrect" or " Napoleon was born on March" ( to decide this last statement, I should open Wikipedia). 
-Events will be usually denoted by capital letters, $A$, $B, \ldots$, and the impossible event will be usually denoted by $\emptyset$. 
-
+An example of an event is "Napoleon was born in March" ( to decide this last statement, I should open Wikipedia). 
+Events will be usually denoted by capital letters, $A$, $B, \ldots$, and the impossible event will be usually denoted by $\emptyset$, while the certain event by $\Omega$. For instance, "The die that I have rolled shows 7" = $\emptyset$ and " The die shows a number" = $\Omega$.  
 
 
 
@@ -54,7 +53,7 @@ There are no inherent restrictions on the events one can define and on which you
 
 \begin{example}[The shop]
 	\label{ex:shop}
-	You are paid by a shop owner to perform a statistical analysis of the customers visiting his shop. For time and economic constraints, you have to choose what kind of events you are interested in. One possibility is to consider only the number of customers, so that the events will be of the form "More than 10 customers will visit the shop", "3 customers will visit the shop", "Between 5 and 7 customers will visit the shop", ... 
+	You are paid by a shop owner to perform a statistical analysis of the customers visiting his shop. Because of time and economical constraints, you have to choose what kind of events you are interested in. One possibility is to consider only the number of customers, so that the events will be of the form "More than 10 customers will visit the shop", "3 customers will visit the shop", "Between 5 and 7 customers will visit the shop", ... 
 	If the shop owner is also interested in the gender of the customers, you can do a finer analysis and consider events that take into account both the number of customers and their gender, such as "More than 3 male customers and less than 10 female customers will visit the shop" or "2 male and 1 female customers will visit the shop". 
 %Note that every event of the first kind is also an event of the second kind: "3 customers will visit the shop" is the same event as "3 customers will visit the shop, of which either 0 male and 3 female, or 1 male and 2 female, or 2 male and 1 female, or 3 male and 0 female". The second choice is therefore finer than the first one, in the sense that it contains more events. We will come back to this in Section~\ref{ss:refinement}. 
 \end{example}
@@ -63,7 +62,8 @@ The events we want to consider are called \emph{measurable events}, since they a
 
 The choice of $\mathfrak F$ is free, up to one requirement: if we want to consider $E$ and $F$, we also have to consider $E \wedge F$, $E \vee F$ and $\neg E$. One of the reasons for this is that whatever we are looking at in order to decide whether $E$ and $F$ are true decides also whether $E \wedge F$, $E \vee F$ and $\neg E$ are true. In Example~\ref{ex:shop}, if by counting the customers we can decide $E$ = "More than 10 customers will visit the shop" and $F$ = "Less than 20 customers will visit the shop", by counting the customers we can also decide $E \wedge F$ = "Between 11 and 19 customers will visit the shop" and $\neg E$ = "At most 10 customers will visit the shop". 
 
-We observe that when we will be introducing a probability in Section~\ref{s:probability}, we need to introduce it in such a way that the probabilities of $E \wedge F$, $E \vee F$ and $\neg E$ are tied to the ones of $E$ and $F$. For instance, the probability of $\neg E$ is one minus the probability of $E$: assigning a probability to $E$ means assigning a probability to $\neg E$ as well, whether we want it or not. Finally, we ask that the certain event belongs to $\mathfrak F$: it is decided by any observation whatsoever, and it is the event to which we will give probability $1$ and with which all the other probabilities are compared. 
+We observe that when we will introduce a probability in Section~\ref{s:probability}, it will be such that the probabilities of $E \wedge F$, $E \vee F$ and $\neg E$ are tied to the ones of $E$ and $F$. For instance, the probability of $\neg E$ is one minus the probability of $E$: assigning a probability to $E$ means assigning a probability to $\neg E$ as well, whether we want it or not. Finally, we ask that the certain event belongs to $\mathfrak F$: it is decided by any observation whatsoever, and it is the event to which we will give probability $1$ and with which all the other probabilities are compared. 
+
 
 \begin{definition}[Measurable events]
 	\label{d:measurable}
@@ -95,12 +95,22 @@ We observe that when we will be introducing a probability in Section~\ref{s:prob
 
 
 
+The operations $\wedge$, $\vee$ and $\neg$ obey the following rules, which we will use without further comment. For every three events $E$, $F$ and $G$ 
+\begin{align}
+	\label{e:rules}
+	& E \wedge F = F \wedge E, \qquad E \vee F = F \vee E, && \text{(commutativity)} \nonumber \\ 
+	& E \wedge (F \wedge G) = (E \wedge F) \wedge G, \qquad E \vee (F \vee G) = (E \vee F) \vee G, && \text{(associativity)} \nonumber \\
+	& E \wedge (F \vee G) = (E \wedge F) \vee (E \wedge G), \qquad E \vee (F \wedge G) = (E \vee F) \wedge (E \vee G), && \text{(distributivity)} \nonumber \\
+	& \neg (E \wedge F) = \neg E \vee \neg F, \qquad \neg (E \vee F) = \neg E \wedge \neg F, && \text{(de Morgan's laws)} \nonumber \\
+	& E \wedge \neg E = \emptyset, \qquad E \vee \neg E = \Omega, \qquad \neg (\neg E) = E, \nonumber \\
+	& E \wedge \Omega = E, \qquad E \vee \emptyset = E, \qquad E \wedge \emptyset = \emptyset, \qquad E \vee \Omega = \Omega. 
+\end{align}
 
 
 \subsection{Elementary events and sample space}
 \label{ss:elementary}
 
-Once the events we want to consider are fixed and collected in $\mathfrak F$, it is possible to define a particular kind of events, the \emph{elementary events}, thanks to which we can model events using set theory. Informally, elementary events are the smallest among the events we want to consider, and can be regarded as the outcomes of the "experiment" we are observing. It is indeed possible to define a notion of smallness using the relation "implies" introduced in Section~\ref{ss:operations}: an event $E$ is smaller than $F$ if $E \rightarrow F$, since $E$ is true in fewer circumstances than $F$. The impossible event is the smallest of all, since $\emptyset \rightarrow F$ for every $F$, and the elementary events are the smallest ones after it. 
+Once the events we want to consider are fixed and collected in $\mathfrak F$, it is possible to define a particular kind of events\sidenote{It is not always possible, the algebra of the events could be atomless.}, the \emph{elementary events}, thanks to which we can model events using set theory. Informally, elementary events are the smallest among the events we want to consider, and can be regarded as the outcomes of the "experiment" we are observing. It is indeed possible to define a notion of smallness using the relation "implies" introduced in Section~\ref{ss:operations}: an event $E$ is smaller than $F$ if $E \rightarrow F$, since $E$ is true in fewer circumstances than $F$. The impossible event is the smallest of all, since $\emptyset \rightarrow F$ for every $F$, and the elementary events are the smallest ones after it. 
 \begin{definition}[Elementary events]
 	\label{d:elementary}
 	An event $E \in \mathfrak F$ is \emph{elementary} if it is not impossible and the only events of $\mathfrak F$ that imply it are $\emptyset$ and $E$ itself: if $F \in \mathfrak F$ and $F \rightarrow E$, then $F = \emptyset$ or $F = E$. 
@@ -111,19 +121,19 @@ For instance, if $\mathfrak F$ consists of all the statements about the result o
 	\Answer By Definition~\ref{d:measurable}, $E \wedge F \in \mathfrak F$. Since $E \wedge F \rightarrow E$ and $E$ is elementary, either $E \wedge F = \emptyset$ or $E \wedge F = E$. In the second case $E \rightarrow F$ and, since $F$ is elementary and $E \neq \emptyset$, $E = F$, which is excluded. Hence $E \wedge F = \emptyset$. 
 	\Exercise In the algebra $\mathfrak F_1$ of Example~\ref{ex:shop_algebra}, which of the following events are elementary? "No customer will visit the shop", "At most one customer will visit the shop", "Exactly 3 customers will visit the shop". 
 	\Answer "No customer will visit the shop" is $E_0$ and "Exactly 3 customers will visit the shop" is $E_3$, and both are elementary: a statement about the number of customers that implies them is either the same statement or impossible. "At most one customer will visit the shop" is $E_0 \vee E_1$, and it is not elementary, since $E_0$ implies it and $E_0$ is neither impossible nor equal to it.
-
 \end{ExerciseList}
 
 The notion of elementary event is fundamental since it allows to encode the events of $\mathfrak F$ as sets, see Section~\ref{ss:subset}. 
 \begin{definition}[Sample space]
 	\label{d:sample_space}
-	Given $\mathfrak F$, the \emph{sample space} is the set of the elementary events of $\mathfrak F$. We denote it by $\Omega$, the same symbol used for the certain event.\sidenote{The two uses of $\Omega$ are reconciled in Section~\ref{ss:subset}, where the certain event is identified with the set of all the elementary events.} 
+	Given $\mathfrak F$, the \emph{sample space} is the set of the elementary events of $\mathfrak F$.
+\sidenote{Despite that almost every textbook in probability starts by providing the sample space, the sample space in probability is only used as a mean of ground events to a standard object, see Subsection~\ref{ss:subset}} 
 \end{definition}
 Elements of the sample space, that is, elementary events, are usually denoted by $\omega$. The sample space can be regarded as the set of the possible outcomes of the system you are looking at, with the degree of precision that you want to impose. From now on we assume that every event of $\mathfrak F$ which is not impossible is implied by at least one elementary event.\sidenote{This is always the case when $\mathfrak F$ is finite, and it is the case in all the examples of these notes. There are algebras of events with no elementary event at all: the statements about an infinite sequence of coin tosses that involve only finitely many tosses, see Example~\ref{ex:infinite_coin}, form one, since a condition on one more toss makes any such statement strictly smaller.} Some examples are in order. 
 
 \begin{example}[Sample space of a coin toss]
 	\label{ex:coin_sample}
-	If $\mathfrak F$ is the algebra of the coin toss \eqref{e:cointoss}, the elementary events are $\omega_1 = E$ = "The coin shows heads" and $\omega_2 = \neg E$ = "The coin shows tails", and the sample space is $\Omega = \{\omega_1, \omega_2\}$. Note that we can use a different notation and set $1 = \omega_1$ and $0 = \omega_2$. However, $0$ and $1$ must not be mistaken for numbers: they are symbols indicating elementary events.\sidenote{Despite that almost every textbook in probability starts by providing the sample space, the sample space in probability is only used as a mean of ground events to a standard object, see Subsection~\ref{ss:subset}} 
+	If $\mathfrak F$ is the algebra of the coin toss \eqref{e:cointoss}, the elementary events are $\omega_1 = E$ = "The coin shows heads" and $\omega_2 = \neg E$ = "The coin shows tails", and the sample space is $\Omega = \{\omega_1, \omega_2\}$. Note that we can use a different notation and set $1 = \omega_1$ and $0 = \omega_2$. However, $0$ and $1$ must not be mistaken for numbers: they are symbols indicating elementary events.
 \end{example}
 
 \begin{example}[A die is rolled]
@@ -299,7 +309,8 @@ From now on we will consider $\mathfrak F$ as a set of subsets of $\Omega$, that
 \subsection{Relevant Examples}
 \label{ss:models}
 
-In this section we collect the basic sample spaces to which we will come back throughout the notes: the sample space of the \emph{Bernoulli trials} and the one of a random number. 
+In this section we collect the basic examples to which we will come back throughout the notes. First we build the sample space of the \emph{Bernoulli trials}, that is, of coin tosses. Then we consider the events generated by random numbers, we give the sample space of $n$ random numbers, and we see the Bernoulli trials as the particular case in which the result of a coin toss is identified with $1$ (heads) or $0$ (tails).
+
 
 \begin{model}[A coin toss]
 	\label{ex:one_coin}
@@ -382,7 +393,7 @@ In this section we collect the basic sample spaces to which we will come back th
 \hlkwd{runif}\hldef{(}\hlnum{1}\hldef{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.3612239
+## [1] 0.1249128
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -394,7 +405,6 @@ In this section we collect the basic sample spaces to which we will come back th
 \end{model}
 
 
-\subsection{Exercises}
 
 
 \begin{ExerciseList}
@@ -457,3 +467,129 @@ Anton, Barbara  and Carlo take turns flipping a coin. The first one to get head 
 	\bel{}{B = \{01, 00001, 00000001, \ldots\}.} 
 	Finally $(A \cup B)^c = \{001, 000001, \ldots\} \cup \{000\ldots\}$ is the event "Carlo wins or the game never ends".
 \end{ExerciseList}
+
+
+
+Many of the examples seen so far consist of a random number $X$ about which we are uncertain, for instance because we have not observed it yet: the result of a die, the number of customers in the shop, the number of verbs in \emph{Anna Karenina}, the percentage of people with a degree in a country. Statements such as "The number $X$ is smaller than $5$" are perfectly legitimate events, and we now describe, in an informal manner, the algebra of events we want to consider when we come across such quantities, which are called \emph{random variables}. 
+
+\begin{model}[One random variable]
+	\label{ex:one_rv}
+	\label{ex:unif}
+	By typing on R the command \texttt{runif}, the computer gives us a number $X$ between 0 and 1. 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{runif}\hldef{(}\hlnum{1}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.4443402
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+	The events we are interested in are of the form "$X < 1/2$" or "$X \in [1/4, 1/2)$", that is, "$X \in I$" for an interval $I$, together with their "and", "or" and "not". Since $X$ takes one value, and only one, the sample space is the set of the values it can take, in this case 
+	\bel{e:unif_1}{
+		\Omega = [0, 1], 
+	}
+	where $x \in [0, 1]$ stands for the event "The output of the command is $x$". Through \eqref{e:abstract_to_concrete} the event "$X \in I$" is identified with the interval $I$ itself: for instance, "The output of the command is smaller than $1/2$" is identified with $[0, 1/2)$, and "and", "or" and "not" become $\cap$, $\cup$ and ${}^c$, as in Section~\ref{ss:subset}.\sidenote{Here $\mathfrak F$ is the algebra generated by the intervals, and a single number is not one of its events: "$X = a$" is the "and" of the infinitely many events "$X \in [a - \frac1n, a + \frac1n]$", $n \in \mathbb N$. To regard the elements of $\Omega$ as elementary events one has to allow this infinite "and", that is, $\mathfrak F$ has to be a $\sigma$-algebra.} 
+	The same holds for a random variable $X$ with values in any set $S$: the events we want to consider are "$X \in A$", for $A \subset S$, and the sample space is $\Omega = S$, the event "$X \in A$" being identified with $A$. When $S$ is finite the events "$X = s$", $s \in S$, are the elementary events, since they are mutually exclusive and one of them is certainly true: for the result of a die, $S = \{1, 2, 3, 4, 5, 6\}$ and we are back to Example~\ref{ex:die_sample}. Note that the values do not need to be numbers: the variant chosen by a speaker is a random variable with values in $S = \{\text{formal}, \text{dialectal}\}$. 
+\end{model}
+
+\begin{model}[$n$ random variables]
+	\label{ex:n_rv}
+	Suppose now that we observe $n$ random variables $X_1, \ldots, X_n$, such as the results of $n$ rolls of a die, $n$ numbers given by \texttt{runif(n)}, or the percentage of people with a degree in $n$ countries. The events we are interested in are of the form 
+	\begin{equation}
+		\label{e:n_rv}
+		\text{"$X_1 \in A_1$ and $X_2 \in A_2$ and \ldots and $X_n \in A_n$"}, 
+	\end{equation}
+	where $A_1, \ldots, A_n$ are sets of values (intervals, when the $X_i$ are random numbers as above), and the events we want to consider, if we are interested only in $X_1, \ldots, X_n$, are those built from \eqref{e:n_rv} with "and", "or" and "not". 
+	When the $X_i$ take values in a finite set $S$, the events "$X_1 = s_1$ and \ldots and $X_n = s_n$" are the elementary events, and we encode them in the strings $s_1 \ldots s_n$, exactly as we did with $HTH$ for three coin tosses and $426$ for three rolls of a die. The sample space is therefore 
+	\begin{equation}
+		\label{e:n_rv_strings}
+		\Omega = \{ s_1 s_2 \ldots s_n \,, s_i \in S \text{ for $i = 1, \ldots, n$} \} = S^n, 
+	\end{equation}
+	which has $m^n$ elements if $S$ has $m$ elements. The event "$X_i \in A$" is identified with the set of the strings whose $i$-th symbol is in $A$, and, when the values are numbers, "$X_1 + \ldots + X_n = k$" with the set of the strings whose digits sum to $k$, as in \eqref{e:ntoss_ksuccesses}. In R: 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hldef{y} \hlkwb{<-} \hlkwd{sample}\hldef{(}\hlnum{1}\hlopt{:}\hlnum{6}\hldef{,} \hlnum{5}\hldef{,} \hlkwc{replace} \hldef{=} \hlnum{TRUE}\hldef{)}                   \hlcom{# five rolls of a die, S = \{1, ..., 6\}}
+\hlkwd{paste}\hldef{(y,} \hlkwc{collapse} \hldef{=} \hlsng{""}\hldef{)}                               \hlcom{# the outcome as a string of Omega}
+\end{alltt}
+\begin{verbatim}
+## [1] "51412"
+\end{verbatim}
+\begin{alltt}
+\hlkwd{sample}\hldef{(}\hlkwd{c}\hldef{(}\hlsng{"formal"}\hldef{,} \hlsng{"dialectal"}\hldef{),} \hlnum{3}\hldef{,} \hlkwc{replace} \hldef{=} \hlnum{TRUE}\hldef{)}   \hlcom{# three random variables whose values are not numbers}
+\end{alltt}
+\begin{verbatim}
+## [1] "dialectal" "dialectal" "dialectal"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{model}
+
+\begin{model}[Infinitely many random variables]
+	\label{ex:inf_rv}
+	Finally, we may observe a sequence of random variables $X_1, X_2, \ldots$ with no end, such as the results of a die rolled again and again. As in Model~\ref{ex:infinite_coin}, the events we want to consider are the statements that involve finitely many of them, that is, the ones built from \eqref{e:n_rv} for some $n \in \mathbb N$, and, when the values are in a finite set $S$, the sample space is the set of the infinite strings 
+	\begin{equation}
+		\label{e:inf_rv_strings}
+		\Omega = \{ s_1 s_2 \ldots s_n \ldots \,, s_i \in S \}, 
+	\end{equation}
+	the event \eqref{e:n_rv} being identified with the set of the strings whose first $n$ symbols are in $A_1, \ldots, A_n$. The sidenote of Model~\ref{ex:infinite_coin} applies word by word. 
+\end{model}
+
+\begin{remark}[Bernoulli trials]
+	\label{r:bernoulli_rv}
+	A random variable with values in $\{0, 1\}$ is called a \emph{Bernoulli random variable}: it records whether something happened ($1$, a success) or not ($0$). The Bernoulli trials of Models~\ref{ex:one_coin}, \ref{ex:n_coin} and \ref{ex:infinite_coin} are the particular case of Models~\ref{ex:one_rv}, \ref{ex:n_rv} and \ref{ex:inf_rv} in which the $X_i$ are Bernoulli random variables, the result of the $i$-th toss: indeed, for $S = \{0, 1\}$ the sample spaces \eqref{e:n_rv_strings} and \eqref{e:inf_rv_strings} are \eqref{e:ntoss} and \eqref{e:infinite_coin}. Conversely, what we will say about coin tosses holds word by word for random variables with values in any finite set $S$. 
+	In R, \texttt{sample} produces the value of a random variable with values in a finite set $S$, in this case \texttt{c(0, 1)}, and with \texttt{replace = TRUE} the values of $n$ of them: 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{sample}\hldef{(}\hlkwd{c}\hldef{(}\hlnum{0}\hldef{,} \hlnum{1}\hldef{),} \hlnum{1}\hldef{)}                          \hlcom{# a coin toss: a Bernoulli random variable}
+\end{alltt}
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+\begin{alltt}
+\hldef{x} \hlkwb{<-} \hlkwd{sample}\hldef{(}\hlkwd{c}\hldef{(}\hlnum{0}\hldef{,} \hlnum{1}\hldef{),} \hlnum{10}\hldef{,} \hlkwc{replace} \hldef{=} \hlnum{TRUE}\hldef{)}    \hlcom{# ten coin tosses}
+\hlkwd{paste}\hldef{(x,} \hlkwc{collapse} \hldef{=} \hlsng{""}\hldef{)}                     \hlcom{# the outcome as a string of Omega_10}
+\end{alltt}
+\begin{verbatim}
+## [1] "0111000110"
+\end{verbatim}
+\begin{alltt}
+\hlkwd{sum}\hldef{(x)}                                      \hlcom{# the number of successes: the k of the E_k that occurred}
+\end{alltt}
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+	How R chooses the values is a matter of probability, see Section~\ref{s:probability}; here we only look at the possible outcomes. 
+\end{remark}
+
+\begin{remark}[The standard definition of random variable]
+	\label{r:standard_rv}
+	Most textbooks define a random variable as a function $X: \Omega \to \mathbb R$, where $\Omega$ is the set of the elementary events. The fact that $X$ is a function on $\Omega$ means that once we have observed the outcome $\omega \in \Omega$ we know the value $X(\omega)$ of the random number. As an example, the number of heads in $n$ coin tosses is a random variable on the sample space $\Omega_n$ of Model~\ref{ex:n_coin}, since we can compute it from the outcome: 
+	\begin{equation}
+		\label{e:rv_heads}
+		X(x_1 \ldots x_n) = x_1 + \ldots + x_n. 
+	\end{equation}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hldef{x} \hlkwb{<-} \hlkwd{sample}\hldef{(}\hlkwd{c}\hldef{(}\hlnum{0}\hldef{,} \hlnum{1}\hldef{),} \hlnum{10}\hldef{,} \hlkwc{replace} \hldef{=} \hlnum{TRUE}\hldef{)}    \hlcom{# the outcome omega}
+\hlkwd{sum}\hldef{(x)}                                      \hlcom{# the value X(omega)}
+\end{alltt}
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+	Similarly, the result of the $i$-th toss is a random variable on the sample space of infinite coin tosses: 
+	\begin{equation}
+		\label{e:rv_toss}
+		X_i(x_1 x_2 \ldots) = x_i. 
+	\end{equation}
+	In practice, what happens is the converse: you observe the random numbers, and then you define the events using them. The string $x_1 \ldots x_n \in \Omega_n$ is nothing but the elementary event "$X_1 = x_1$ and \ldots and $X_n = x_n$", and the events "$X \in A$" of Model~\ref{ex:one_rv} are all we will ever use. 
+\end{remark}
+

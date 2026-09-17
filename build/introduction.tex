@@ -1,41 +1,41 @@
-
 	\section{Introduction}
 	\label{s:intro}
 
-Probability Theory is a mathematical framework introduced for quantifying uncertainty. Example of sentences with which it works are 
+Probability theory is a mathematical framework for quantifying uncertainty. Examples of the sentences it deals with are
 \begin{enumerate}
-	\item  The probability that tomorrow will rain is 0.75.
-	\item \label{e:stat1} The probability that the coin that I am about to toss will show its head is 1/2. 
+	\item \label{e:stat0} The probability that tomorrow it will rain is $0.75$.
+	\item \label{e:stat1} The probability that the coin I am about to toss will show heads is $1/2$.
 \end{enumerate}
-For the rest of the notes, we take a subjective stance and consider the above sentences as expressing a \emph{subjective} degree of belief that an individual has for the events. 
-  
-Many ways have been tried to give a rigorous meaning of probabilistic statemwents as the above ones in many different context. %Maybe here put cite a paragraph in the future 
-Those interesting discussons, however, are not needed when studying probability theory. Indeed, probability theory gives a formal framework to work with sentences such as the above ones, without the need for them to have a precise meaning nor to be true. For instance, statement ~\ref{e:stat1} is not universally true since one can easily cheat with coin tosses and make heads always appear.
- This is not peculiar to probability theory alone: geometry works with points wihout never defining them and logic is concerned on how to work with sentences without never being converned on the veradicity of them. 
+Throughout these notes we take a \emph{subjective} stance: sentences such as the above ones express the degree of belief that an individual has in an event. Following \cite{definetti}, we will call this individual ``you'', since it is you who evaluates the probabilities.
 
-To get an idea of which objects we need to formalise, we now proceed to decompose and to analyse the above statements. Both of them are of the form "The probability of \emph{something} is a number". That \emph{something} in the first case is E=" Tomorrow will rain", and in the second case F=" The coin that I am about to toss will show heads", and it will be called an \emph{event}. Events are the objets to which probability refers and the probability of an event is a number, $ 0.75$ in the first statement and  $ 0.5$, in the second. We now make an intermediate step and rewrite the above statements as  
+Many attempts have been made to give a rigorous meaning to such sentences, in many different contexts. %Maybe here put cite a paragraph in the future
+Those discussions, however interesting, are not needed in order to study probability theory. Probability theory provides a formal framework to work with sentences such as the above ones without requiring them to have a precise meaning, nor to be true. Statement~\ref{e:stat1}, for instance, is certainly false for some coins and for some tossers: a coin can be biased, and with some practice one can learn to toss a coin so that heads comes up almost every time. Probability theory has nothing to say about this. What it does say is, for example, that \emph{if} statement~\ref{e:stat0} holds, then the probability that tomorrow it will not rain is $0.25$, and the probability of a storm, which implies rain, cannot exceed $0.75$.
 
+This is not peculiar to probability theory. Geometry works with points and lines without ever defining them, and logic is concerned with how to reason correctly from sentences, without being concerned with their truth. Consider the argument
+\begin{quote}
+	All Corsicans were born in March. Napoleon was Corsican. Therefore, Napoleon was born in March.
+\end{quote}
+Although the last statement is false, the above reasoning is flawless in form and a perfectly legit logical statement. Similarly, we will learn how to work with probabilities (the analogue of the above syllogism) without questioning either the truth or the meaning of the probabilities we start from (the premises).
+
+To get an idea of which objects we need to formalise, we decompose the two statements above. Both are of the form ``the probability of \emph{something} is a number''. That something is $E = $ ``tomorrow it will rain'' in the first case and $F = $ ``the coin I am about to toss will show heads'' in the second, and it will be called an \emph{event}. Events are the objects to which probability refers, and the probability of an event is a number: $0.75$ in the first statement and $0.5$ in the second. We can therefore rewrite the two statements as
 \begin{itemize}
-
-	\item The probability of $E$ is 0.75
-	\item The probability of $F$ is 0.5
-
+	\item the probability of $E$ is $0.75$;
+	\item the probability of $F$ is $0.5$.
 \end{itemize}
-Therefore, the probability of an event is a number and the probability is an operation that associates to each event a number. Denoting "The probability of" by $\mathbb P()$, the above statements can be rewritten as
+Probability is thus an operation that associates a number to each event. Writing $\mathbb P(\,)$ for ``the probability of'', the statements become
 \begin{itemize}
-    \item $\mathbb{P}(E)=0.75$ \\
-    \item $ \mathbb{P}(F)=0.5$. 
+	\item $\mathbb P(E) = 0.75$;
+	\item $\mathbb P(F) = 0.5$,
 \end{itemize}
-and $\mathbb P$ can be seen as a function that takes in input an event and whose output is a number $p $ between 0 and 1
+and $\mathbb P$ can be seen as a function whose input is an event and whose output is a number between $0$ and $1$:
 \begin{equation}
 	\begin{array}{ccc}
-	\mathbb P: \text{ Events} & \mapsto & [0,1]\\
-		E &  \to & \mathbb P(E) \in [0,1].
+		\mathbb P: \text{Events} & \to & [0,1]\\
+		E & \mapsto & \mathbb P(E).
 	\end{array}
-	\end{equation}
-Therefore a typical probabilisitc statement assumes the form of 
-\begin{itemize}
-	\item The probability of the event $E$  is $p$, or, $\mathbb{P}(E)=p$, 
-\end{itemize}
-where $p \in [0,1]$.
+\end{equation}
+A typical probabilistic statement therefore has the form ``the probability of the event $E$ is $p$'', or $\mathbb P(E) = p$, for some $p \in [0,1]$.
+
+Two things must be made precise for this to become mathematics. First, what an event is and how events combine with one another: this is the subject of Section~\ref{s:events}, and it involves no probability at all. Second, which functions $\mathbb P$ deserve the name of probability, that is, which rules the numbers $\mathbb P(E)$ must obey to be consistent with one another: this is the subject of Section~\ref{s:probability}.
+	
 
