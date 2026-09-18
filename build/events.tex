@@ -123,11 +123,10 @@ For instance, if $\mathfrak F$ consists of all the statements about the result o
 	\Answer "No customer will visit the shop" is $E_0$ and "Exactly 3 customers will visit the shop" is $E_3$, and both are elementary: a statement about the number of customers that implies them is either the same statement or impossible. "At most one customer will visit the shop" is $E_0 \vee E_1$, and it is not elementary, since $E_0$ implies it and $E_0$ is neither impossible nor equal to it.
 \end{ExerciseList}
 
-The notion of elementary event is fundamental since it allows to encode the events of $\mathfrak F$ as sets, see Section~\ref{ss:subset}. 
+The notion of elementary eventallows to encode the events of $\mathfrak F$ as subsets of the \emph{sample space} defined next, see Section~\ref{ss:subset}. 
 \begin{definition}[Sample space]
 	\label{d:sample_space}
 	Given $\mathfrak F$, the \emph{sample space} is the set of the elementary events of $\mathfrak F$.
-\sidenote{Despite that almost every textbook in probability starts by providing the sample space, the sample space in probability is only used as a mean of ground events to a standard object, see Subsection~\ref{ss:subset}} 
 \end{definition}
 Elements of the sample space, that is, elementary events, are usually denoted by $\omega$. The sample space can be regarded as the set of the possible outcomes of the system you are looking at, with the degree of precision that you want to impose. From now on we assume that every event of $\mathfrak F$ which is not impossible is implied by at least one elementary event.\sidenote{This is always the case when $\mathfrak F$ is finite, and it is the case in all the examples of these notes. There are algebras of events with no elementary event at all: the statements about an infinite sequence of coin tosses that involve only finitely many tosses, see Example~\ref{ex:infinite_coin}, form one, since a condition on one more toss makes any such statement strictly smaller.} Some examples are in order. 
 
@@ -393,7 +392,7 @@ In this section we collect the basic examples to which we will come back through
 \hlkwd{runif}\hldef{(}\hlnum{1}\hldef{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.1249128
+## [1] 0.8557009
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -482,7 +481,7 @@ Many of the examples seen so far consist of a random number $X$ about which we a
 \hlkwd{runif}\hldef{(}\hlnum{1}\hldef{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 0.4443402
+## [1] 0.01942368
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -515,13 +514,13 @@ Many of the examples seen so far consist of a random number $X$ about which we a
 \hlkwd{paste}\hldef{(y,} \hlkwc{collapse} \hldef{=} \hlsng{""}\hldef{)}                               \hlcom{# the outcome as a string of Omega}
 \end{alltt}
 \begin{verbatim}
-## [1] "51412"
+## [1] "54534"
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sample}\hldef{(}\hlkwd{c}\hldef{(}\hlsng{"formal"}\hldef{,} \hlsng{"dialectal"}\hldef{),} \hlnum{3}\hldef{,} \hlkwc{replace} \hldef{=} \hlnum{TRUE}\hldef{)}   \hlcom{# three random variables whose values are not numbers}
 \end{alltt}
 \begin{verbatim}
-## [1] "dialectal" "dialectal" "dialectal"
+## [1] "dialectal" "formal"    "dialectal"
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -554,13 +553,13 @@ Many of the examples seen so far consist of a random number $X$ about which we a
 \hlkwd{paste}\hldef{(x,} \hlkwc{collapse} \hldef{=} \hlsng{""}\hldef{)}                     \hlcom{# the outcome as a string of Omega_10}
 \end{alltt}
 \begin{verbatim}
-## [1] "0111000110"
+## [1] "0100001010"
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sum}\hldef{(x)}                                      \hlcom{# the number of successes: the k of the E_k that occurred}
 \end{alltt}
 \begin{verbatim}
-## [1] 5
+## [1] 3
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -581,7 +580,7 @@ Many of the examples seen so far consist of a random number $X$ about which we a
 \hlkwd{sum}\hldef{(x)}                                      \hlcom{# the value X(omega)}
 \end{alltt}
 \begin{verbatim}
-## [1] 3
+## [1] 5
 \end{verbatim}
 \end{kframe}
 \end{knitrout}

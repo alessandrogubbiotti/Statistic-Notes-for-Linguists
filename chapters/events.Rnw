@@ -123,11 +123,10 @@ For instance, if $\mathfrak F$ consists of all the statements about the result o
 	\Answer "No customer will visit the shop" is $E_0$ and "Exactly 3 customers will visit the shop" is $E_3$, and both are elementary: a statement about the number of customers that implies them is either the same statement or impossible. "At most one customer will visit the shop" is $E_0 \vee E_1$, and it is not elementary, since $E_0$ implies it and $E_0$ is neither impossible nor equal to it.
 \end{ExerciseList}
 
-The notion of elementary event is fundamental since it allows to encode the events of $\mathfrak F$ as sets, see Section~\ref{ss:subset}. 
+The notion of elementary eventallows to encode the events of $\mathfrak F$ as subsets of the \emph{sample space} defined next, see Section~\ref{ss:subset}. 
 \begin{definition}[Sample space]
 	\label{d:sample_space}
 	Given $\mathfrak F$, the \emph{sample space} is the set of the elementary events of $\mathfrak F$.
-\sidenote{Despite that almost every textbook in probability starts by providing the sample space, the sample space in probability is only used as a mean of ground events to a standard object, see Subsection~\ref{ss:subset}} 
 \end{definition}
 Elements of the sample space, that is, elementary events, are usually denoted by $\omega$. The sample space can be regarded as the set of the possible outcomes of the system you are looking at, with the degree of precision that you want to impose. From now on we assume that every event of $\mathfrak F$ which is not impossible is implied by at least one elementary event.\sidenote{This is always the case when $\mathfrak F$ is finite, and it is the case in all the examples of these notes. There are algebras of events with no elementary event at all: the statements about an infinite sequence of coin tosses that involve only finitely many tosses, see Example~\ref{ex:infinite_coin}, form one, since a condition on one more toss makes any such statement strictly smaller.} Some examples are in order. 
 

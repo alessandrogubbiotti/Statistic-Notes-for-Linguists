@@ -1,0 +1,46 @@
+\section{Exercises from a past exam}
+\label{s:exam}
+
+The following exercises formed a written exam on the material of this chapter. They require only the notions introduced so far, and the hints point to the relevant sections.
+
+\begin{ExerciseList}
+
+	\Exercise Anton and Barbara take turns rolling a die. The first one that obtains $6$ wins. Describe the sample space and write the event $A$ = "Anton wins" in terms of the elementary events. To which event does $A^c$ correspond? 
+
+	\Exercise On $\Omega = \{(1,1), (1,2), (1,3), \ldots, (3,2), (3,3)\} = \{(x_1, x_2) : x_1, x_2 \in \{1,2,3\}\}$ consider the probability defined by 
+	\begin{align*}
+		\mathbb P((1,1)) &= 0.15, & \mathbb P((1,2)) &= 0.15, & \mathbb P((1,3)) &= 0.2, \\
+		\mathbb P((2,1)) &= 0,    & \mathbb P((2,2)) &= 0.1,  & \mathbb P((2,3)) &= 0.1, \\
+		\mathbb P((3,1)) &= 0.1,  & \mathbb P((3,2)) &= 0.2,  & \mathbb P((3,3)) &= 0.
+	\end{align*}
+	\Question What is the probability of the event "The first number is 1" $= \{(1,1), (1,2), (1,3)\}$?
+	\Question What is the probability of the event "The first number is 1" conditioned to the event "The second number is 3" $= \{(1,3), (2,3), (3,3)\}$?
+
+	\Exercise (Symmetric Bernoulli trials) We toss a fair coin $9$ times. We describe the sample space as 
+	\bel{e:exam_nine_tosses}{\Omega = \{(x_1, \ldots, x_9) : x_i \in \{0,1\} \text{ for } i = 1, \ldots, 9\},}
+	that is, the set of all possible strings $(0,0,\ldots,0)$, $(0,0,\ldots,1)$, and so on, where $1$ means heads and $0$ tails. The probability on $\Omega$ is the uniform one, which is the probability of $9$ independent tosses of a fair coin, see Subsection~\ref{ss:independence}.
+	\Question What is the probability that all the coin tosses gave heads?
+	\Question What is the probability that only $1$ coin toss gave heads?
+	\Question What is the probability that at most $1$ coin toss gave heads?
+	\Question What is the probability that at least $8$ coin tosses gave heads?
+	\Question What is the probability that $4$ or fewer coin tosses gave heads? (Hint: use the fact that this event has the same number of elements as its complement. In this way you don't need to use combinatorics.)
+
+	\Exercise This exercise is already in the notes: it is Exercise~\ref{ex:indep}. We have two urns, one containing $3$ red balls, $1$ blue ball and $1$ white ball, the other one containing $3$ blue balls, $1$ red ball and $1$ white ball, and we toss a fair coin to choose one of the two urns. 
+
+	\Exercise There are $8$ lottery tickets, and each one of them is winning with probability $1/8$ \emph{independently} from the others. You buy $3$ tickets. What is the probability that at least one of them is winning? (Hint: consider the complementary event and use the independence.)
+
+	\Exercise There are $8$ lottery tickets, $4$ of which are winning. You buy $3$ tickets. What is the probability that at least one of them is winning? Hint: consider the complementary event and define the numbers 
+	\bel{e:exam_tickets}{X_i = \begin{cases} 1 & \text{if the $i$-th ticket is losing} \\ 0 & \text{if the $i$-th ticket is winning} \end{cases}}
+	for $i = 1, 2, 3$. Using twice the definition of conditional probability, Definition~\ref{conditional}, you can write 
+	\bel{e:exam_chain}{\mathbb P(X_1 = 1, X_2 = 1, X_3 = 1) = \mathbb P(X_1 = 1)\, \mathbb P(X_2 = 1 \,|\, X_1 = 1)\, \mathbb P(X_3 = 1 \,|\, X_1 = 1, X_2 = 1),}
+	and each factor on the right hand side is easy to compute.
+
+	\Exercise (\cite{daipra}, Exercise 1.34) Anton from Milan and Jonathan from Rome decide to meet in Rome. Anton is an irresolute person and decides whether to actually take the train to Rome at the last moment, by tossing a fair coin: if it gives heads, then he will go to Rome, otherwise he will stay at home. If he decides to go to Rome, he rolls a die to decide which one of the $6$ possible trains he will take. At the train station in Rome, Jonathan observes that Anton is not on the first $5$ trains. What is the probability that Anton is on the last train?
+
+	\Exercise We toss independently $6$ times an unfair coin. The sample space of the experiment is $\Omega = \{(x_1, \ldots, x_6) : x_i \in \{0,1\}, i = 1, \ldots, 6\}$, where, for instance, $(1,0,1,1,1,1)$ denotes the event "The first toss gave heads, the second tails, the third heads, \ldots, the sixth heads". We denote by $X_i$ the random number defined by 
+	\bel{e:exam_unfair_Xi}{X_i = \begin{cases} 1 & \text{if the $i$-th toss gave heads} \\ 0 & \text{if the $i$-th toss gave tails.} \end{cases}}
+	Thus, the event $(X_i = 1)$ is the event "The $i$-th coin toss gave heads". Denote by $p$ (you can take $p = 2/3$, if you prefer) the probability that the coin gives heads. This means that $\mathbb P(X_i = 1) = p$ for each $i = 1, \ldots, 6$.
+	\Question Compute the probability of the event $A$ = "The total number of heads is 1".
+	\Question Conditioned to the event $A$ defined above, what is the probability of the events $(X_i = 1)$, for $i = 1, \ldots, 6$? (Hint: look at Subsection~\ref{ss:independence}.)
+
+\end{ExerciseList}
